@@ -1,9 +1,5 @@
 
-import 'formcraft_platform_interface.dart';
+library formcraft;
 
-class Formcraft {
-  Future<String?> getPlatformVersion() {
-    return FormcraftPlatform.instance.getPlatformVersion();
-    // test
-  }
-}
+export 'src/builder.dart';
+
