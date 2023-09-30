@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:formcraft/formcraft.dart';
 
 void main() {
@@ -23,12 +20,21 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(useMaterial3: true),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('FormCraft Example'),
-        ),
-        body: Center(
-          child: const FormCraftBuilder(),
+      home: const Center(
+        child: FormCraft(
+          data: {
+            "type": "scaffold",
+            "appbar": {
+              "title": "FormCraft",
+              // "backgroundColor": "#000",
+              // "titleColor": "#fff"
+            },
+            "child": {
+              "type": "text",
+              "title": "Hello FormCraft!",
+            },
+            // "color": "#000"
+          },
         ),
       ),
     );

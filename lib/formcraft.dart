@@ -1,5 +1,5 @@
 
 library formcraft;
 
-export 'src/_fc_builder.dart';
+export 'src/formcraft.dart';
 

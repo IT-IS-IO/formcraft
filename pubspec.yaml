@@ -1,7 +1,7 @@
 name: formcraft
 description: FormCraft Plugin
 version: 0.0.1
-homepage:
+homepage: https://pub.dev/packages/formcraft
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
