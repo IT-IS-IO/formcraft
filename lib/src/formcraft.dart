@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
-import 'package:formcraft/src/utils/managers/ContextManager.dart';
 
 
 class FormCraft extends StatefulWidget {
@@ -16,8 +15,6 @@ class FormCraft extends StatefulWidget {
 
 class _FormCraftState extends State<FormCraft> {
 
-
-  late final FcContextManager contextManager = FcContextManager(data: widget.data);
 
 
   @override

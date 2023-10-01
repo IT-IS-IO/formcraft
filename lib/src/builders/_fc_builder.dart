@@ -46,7 +46,6 @@ class FormCraftBuilder extends BuilderAbstract {
   }
 
 
-
   static Widget buildFormField({ required Map<String, dynamic> data }) {
     switch (MapManager.get("type", data)) {
       case "input": return FieldBuilder.build(data: data);
@@ -54,8 +53,6 @@ class FormCraftBuilder extends BuilderAbstract {
       default: return const Text("Hello FormCraft!");
     }
   }
-
-
 
 
 }

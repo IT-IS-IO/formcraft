@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 class MapManager {
 
+
   static String get(String key, Map<String, dynamic> map) {
     if (map.containsKey(key)) {
       return map[key];
