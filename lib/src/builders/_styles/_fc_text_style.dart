@@ -4,7 +4,7 @@
 
 
 import 'package:flutter/material.dart' show FontWeight, TextStyle;
-import 'package:formcraft/src/utils/managers/MapManager.dart';
+import 'package:formcraft/src/managers/MapManager.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 class TextStyleBuilder {

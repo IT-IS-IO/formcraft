@@ -1,61 +1,47 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:form_bloc/form_bloc.dart';
+import 'package:formcraft/src/managers/abstract_manager.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 
 
-class FormManager extends ChangeNotifier {
+class FormManager extends Manager {
 
 
-  final Map<String, FormBloc> _forms = { };
+  bool addFieldBloc({ required String key, required SingleFieldBloc field, int? step }) {
 
+    if (!has(key)) return false;
 
-  bool get hasForms => _forms.isNotEmpty;
-
-
-  bool hasForm(String key) => _forms.containsKey(key);
-
-
-  FormBloc getForm(String key) => _forms[key]!;
-
-
-  void addForm(String key, FormBloc data) {
-    _forms[key] = data;
-  }
-
-
-  void removeForm(String key) {
-    _forms[key]?.close();
-    _forms.remove(key);
-  }
-
-
-  bool addFieldBloc({ required String form, required SingleFieldBloc field, int? step }) {
-
-    if (!hasForm(form)) return false;
-
-    if (!isNull(step)) _forms[form]!.addFieldBloc(step: step!, fieldBloc: field);
-    else _forms[form]!.addFieldBloc(fieldBloc: field);
-    return true;
-  }
-
-
-  bool removeFieldBloc({ required String form, required SingleFieldBloc field, int? step }) {
-
-    if (!hasForm(form)) return false;
-
-    if (!isNull(step)) _forms[form]!.removeFieldBloc(step: step!, fieldBloc: field);
-    else _forms[form]!.removeFieldBloc(fieldBloc: field);
+    if (!isNull(step)) data[key]!.addFieldBloc(step: step!, fieldBloc: field);
+    else data[key]!.addFieldBloc(fieldBloc: field);
 
     return true;
   }
 
 
+  @override
+  void set<T>(String key, T value) {
+    if (has(key)) return;
+    data[key] = value;
+  }
+
+
+  @override
   void clear() {
-    _forms.forEach((key, value) => value.close());
-    _forms.clear();
+    data
+      ..forEach((key, value) => value.close())
+      ..clear();
   }
+
+
+  @override
+  void remove(String key) {
+    data[key]?.close();
+    data.remove(key);
+  }
+
+
+  bool get hasForms => data.isNotEmpty;
 
 
 }

@@ -1,8 +1,5 @@
 
 
-
-
-
 import 'package:flutter/material.dart';
 
 class MapManager {
@@ -21,7 +18,7 @@ class MapManager {
     if (map.containsKey(key)) {
       return Color(int.parse(map[key]));
     }
-    return Colors.black;
+    return Colors.grey;
   }
 
 

@@ -30,9 +30,45 @@ class _MyAppState extends State<MyApp> {
               // "titleColor": "#fff"
             },
             "child": {
-              "type": "text",
-              "title": "Hello FormCraft!",
-            },
+              "type": "column",
+              "children": [
+                {
+                  "type": "container",
+                  "child": {
+                    "type": "form",
+                    "name": "FormCraft",
+                    "child": {
+                      "type": "input",
+                      "name": "FormCraftInput",
+                      "form": "FormCraft",
+                      "initialValue": "Hello World!"
+                    }
+                  }
+                },
+                {
+                  "type": "container",
+                  "child": {
+                    "type": "form",
+                    "name": "FormCraft2",
+                    "child": {
+                      "type": "input",
+                      "name": "FormCraftInput",
+                      "form": "FormCraft2",
+                      "initialValue": ""
+                    }
+                  }
+                },
+                {
+                  "type": "container",
+                  "child": {
+                    "type": "input",
+                    "name": "FormCraftInput12",
+                    "form": "FormCraft",
+                    "initialValue": "Hello FormCraft!"
+                  }
+                },
+              ]
+            }
             // "color": "#000"
           },
         ),

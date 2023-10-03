@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/builders/_widgets/appbar_builder.dart';
-import 'package:formcraft/src/utils/managers/MapManager.dart';
+import 'package:formcraft/src/managers/MapManager.dart';
 
 class ScaffoldBuilder extends BuilderAbstract {
 

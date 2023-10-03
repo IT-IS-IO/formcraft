@@ -1,42 +1,40 @@
 
-import 'package:flutter/cupertino.dart';
-import 'package:form_bloc/form_bloc.dart';
+import 'package:formcraft/src/managers/abstract_manager.dart';
 
 
 
-class FormManager extends ChangeNotifier {
-
-
-  final Map<String, SingleFieldBloc> _fields = { };
-
-
-  bool get hasFields => _fields.isNotEmpty;
-
-
-  bool hasField(String key) => _fields.containsKey(key);
-
-
-  SingleFieldBloc? getField(String key) {
-    if (!hasField(key)) return null;
-    return _fields[key];
-  }
-
-
-  void addField(String key, SingleFieldBloc data) {
-    _fields[key] = data;
-  }
-
-
-  void removeField(String key) {
-    _fields[key]?.close();
-    _fields.remove(key);
-  }
+class FieldManager extends Manager {
 
 
   void updateValidators(String key, List<Object? Function(dynamic)> validators) {
-    if (!hasField(key)) return;
-    _fields[key]!.addValidators(validators);
+    if (!has(key)) return;
+    data[key]!.updateValidators(validators);
   }
+
+
+  @override
+  void set<T>(String key, T value) {
+    if (has(key)) return;
+    data[key] = value;
+  }
+
+
+  @override
+  void clear() {
+    data
+      ..forEach((key, value) => value.close())
+      ..clear();
+  }
+
+
+  @override
+  void remove(String key) {
+    data[key]?.close();
+    data.remove(key);
+  }
+
+
+  bool get hasFields => data.isNotEmpty;
 
 
 }
