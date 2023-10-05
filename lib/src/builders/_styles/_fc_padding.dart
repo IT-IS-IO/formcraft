@@ -1,7 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/utils/managers/MapManager.dart';
+import 'package:formcraft/src/managers/MapManager.dart';
+
 
 class PaddingBuilder {
 
@@ -15,7 +16,5 @@ class PaddingBuilder {
     }
     return EdgeInsets.zero;
   }
-
-
 
 }

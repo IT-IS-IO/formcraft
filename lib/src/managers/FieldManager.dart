@@ -29,6 +29,7 @@ class FieldManager extends Manager {
 
   @override
   void remove(String key) {
+    if (!has(key)) return;
     data[key]?.close();
     data.remove(key);
   }

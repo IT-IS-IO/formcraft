@@ -12,9 +12,9 @@ class FormBuilder {
 
   static Widget? build({ required Map<String, dynamic> data }) {
 
-    StateManager.addForm(key: MapManager.get("name", data), form: FormBlocBuilder());
+    StateManager.addForm(key: MapManager.getAsString("name", data), form: FormBlocBuilder());
 
-    return FieldBuilder.build(data: data["child"]);
+    return FieldBuilder.build(data: MapManager.get("child", data));
 
   }
 

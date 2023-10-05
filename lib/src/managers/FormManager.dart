@@ -29,7 +29,7 @@ class FormManager extends Manager {
   @override
   void clear() {
     data
-      ..forEach((key, value) => value.close())
+      ..forEach((_, __) => __.close())
       ..clear();
   }
 

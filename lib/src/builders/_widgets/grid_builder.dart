@@ -9,17 +9,26 @@ import 'package:formcraft/src/managers/MapManager.dart';
 class GridBuilder extends BuilderAbstract {
 
 
-  static Future<Widget> build({ required Map<String, dynamic> data }) async {
-    return const SizedBox();
+  static Widget build({ required Map<String, dynamic> data }) {
+
+    switch(MapManager.getAsString("widget", data)) {
+      case "container": return container(data: data);
+      case "column": return column(data: data);
+      case "row": return row(data: data);
+      case "grid": return grid(data: data);
+      case "center": return Center( child: FormCraftBuilder.build(data: MapManager.get("child", data)) );
+      default: return const SizedBox();
+    }
+
   }
 
 
   static Widget row({ required Map<String, dynamic> data }) {
     return Row(
-      mainAxisSize: AlignmentBuilder.getMainAxisSize(MapManager.get("mainAxisSize", data)),
-      mainAxisAlignment: AlignmentBuilder.getMainAxisAlignment(MapManager.get("mainAxisAlignment", data)),
-      crossAxisAlignment: AlignmentBuilder.getCrossAxisAlignment(MapManager.get("crossAxisAlignment", data)),
-      children: MapManager.getChildren(data).map<Widget>((_) => FormCraftBuilder.build(data: _) ?? const SizedBox()).toList(),
+      mainAxisSize: AlignmentBuilder.getMainAxisSize(MapManager.getAsString("mainAxisSize", data)),
+      mainAxisAlignment: AlignmentBuilder.getMainAxisAlignment(MapManager.getAsString("mainAxisAlignment", data)),
+      crossAxisAlignment: AlignmentBuilder.getCrossAxisAlignment(MapManager.getAsString("crossAxisAlignment", data)),
+      children: MapManager.getList("children", data).map<Widget>((_) => FormCraftBuilder.build(data: _) ?? const SizedBox()).toList(),
     );
   }
 
@@ -29,17 +38,17 @@ class GridBuilder extends BuilderAbstract {
       crossAxisCount: MapManager.getInt("crossAxisCount", data),
       crossAxisSpacing: MapManager.getDouble("crossAxisSpacing", data),
       mainAxisSpacing: MapManager.getDouble("mainAxisSpacing", data),
-      children: MapManager.getChildren(data).map<Widget>((_) => FormCraftBuilder.build(data: _) ?? const SizedBox()).toList(),
+      children: MapManager.getList("children", data).map<Widget>((_) => FormCraftBuilder.build(data: _) ?? const SizedBox()).toList(),
     );
   }
 
 
   static Widget column({ required Map<String, dynamic> data }) {
     return Column(
-      mainAxisSize: AlignmentBuilder.getMainAxisSize(MapManager.get("mainAxisSize", data)),
-      mainAxisAlignment: AlignmentBuilder.getMainAxisAlignment(MapManager.get("mainAxisAlignment", data)),
-      crossAxisAlignment: AlignmentBuilder.getCrossAxisAlignment(MapManager.get("crossAxisAlignment", data)),
-      children: MapManager.getChildren(data).map<Widget>((_) => FormCraftBuilder.build(data: _) ?? const SizedBox()).toList(),
+      mainAxisSize: AlignmentBuilder.getMainAxisSize(MapManager.getAsString("mainAxisSize", data)),
+      mainAxisAlignment: AlignmentBuilder.getMainAxisAlignment(MapManager.getAsString("mainAxisAlignment", data)),
+      crossAxisAlignment: AlignmentBuilder.getCrossAxisAlignment(MapManager.getAsString("crossAxisAlignment", data)),
+      children: MapManager.getList("children", data).map<Widget>((_) => FormCraftBuilder.build(data: _) ?? const SizedBox()).toList(),
     );
   }
 
@@ -49,7 +58,7 @@ class GridBuilder extends BuilderAbstract {
       // color: MapManager.getColor("color", data),
       // width: MapManager.getDouble("width", data),
       // height: MapManager.getDouble("height", data),
-      child: FormCraftBuilder.build(data: data["child"]),
+      child: FormCraftBuilder.build(data: MapManager.get("child", data)),
     );
   }
 

@@ -16,13 +16,13 @@ class FormCraft extends StatefulWidget {
 
 class _FormCraftState extends State<FormCraft> {
 
-  StateManager s = StateManager();
   late Future<Widget?> init;
 
   @override
   void initState() {
     super.initState();
     init = Future.value(FormCraftBuilder.build(data: widget.data));
+    StateManager.context = context;
   }
 
 
@@ -32,7 +32,9 @@ class _FormCraftState extends State<FormCraft> {
       future: init,
       builder: (_, AsyncSnapshot<Widget?> snapshot) {
 
-        if (snapshot.hasData) return snapshot.data ?? const Text("Hello FormCraft! (Has no data)");
+        if (snapshot.hasData) {
+          return snapshot.data ?? const Text("Hello FormCraft! (Has no data)");
+        }
 
         if (snapshot.hasError) {
           print(snapshot.stackTrace);
@@ -44,5 +46,6 @@ class _FormCraftState extends State<FormCraft> {
       }
     );
   }
+
 
 }

@@ -30,10 +30,12 @@ class _MyAppState extends State<MyApp> {
               // "titleColor": "#fff"
             },
             "child": {
-              "type": "column",
+              "type": "grid",
+              "widget": "column",
               "children": [
                 {
-                  "type": "container",
+                  "type": "grid",
+                  "widget": "container",
                   "child": {
                     "type": "form",
                     "name": "FormCraft",
@@ -41,32 +43,89 @@ class _MyAppState extends State<MyApp> {
                       "type": "input",
                       "name": "FormCraftInput",
                       "form": "FormCraft",
-                      "initialValue": "Hello World!"
+                      "initialValue": "Hello World!",
+                      "events": [
+                        {
+                          "type": "condition",
+                          "conditions": [
+                            {
+                              "type": "equals",
+                              "value": "[FormCraft.FormCraftInput2]",
+                              "then": [
+                                {
+                                  "type": "message",
+                                  "message_type": "snackbar",
+                                  "message": "Hello World!",
+                                },
+                                {
+                                  "type": "change_field",
+                                  "change": "[form.FormCraftInput.FormCraftInput2]",
+                                  "to": "Changed This"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "or",
+                              "value": "Hello",
+                              "then": [
+                                {
+                                  "type": "message",
+                                  "message_type": "snackbar",
+                                  "message": "HEHEHEHEHE",
+                                },
+                                {
+                                  "type": "change_field",
+                                  "change": "[FormCraft.FormCraftInput]",
+                                  "to": "Hello World!"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                      ]
                     }
                   }
                 },
                 {
-                  "type": "container",
-                  "child": {
-                    "type": "form",
-                    "name": "FormCraft2",
-                    "child": {
-                      "type": "input",
-                      "name": "FormCraftInput",
-                      "form": "FormCraft2",
-                      "initialValue": ""
-                    }
-                  }
-                },
-                {
-                  "type": "container",
+                  "type": "grid",
+                  "widget": "container",
                   "child": {
                     "type": "input",
-                    "name": "FormCraftInput12",
+                    "name": "FormCraftInput2",
                     "form": "FormCraft",
-                    "initialValue": "Hello FormCraft!"
+                    "initialValue": ""
                   }
                 },
+                // {
+                //   "type": "grid",
+                //   "widget": "container",
+                //   "child": {
+                //     "type": "button",
+                //     "button": "text",
+                //     "text": "Submit",
+                //     "event.long": {
+                //       "type": "submit",
+                //       "method": "debug",
+                //     }
+                //   }
+                // },
+                // {
+                //   "type": "button",
+                //   "button": "icon",
+                //   "text": "Submit",
+                //   "event": {
+                //     "type": "method",
+                //     "method": "modal",
+                //     "widget": {
+                //       "type": "grid",
+                //       "widget": "container",
+                //       "child": {
+                //         "type": "text",
+                //         "title": "Hello World!"
+                //       }
+                //     }
+                //   }
+                // }
               ]
             }
             // "color": "#000"

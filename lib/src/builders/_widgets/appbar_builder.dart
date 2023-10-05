@@ -15,7 +15,7 @@ class AppbarBuilder extends BuilderAbstract {
     return PreferredSize(
       preferredSize: const Size.fromHeight(50.0),
       child: AppBar(
-        title: Text(MapManager.get("title", data!)),
+        title: Text(MapManager.getAsString("title", data!)),
       )
     );
 
