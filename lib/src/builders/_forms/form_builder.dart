@@ -10,7 +10,7 @@ class FormBuilder {
 
   static const IDENTITY_KEY = "form";
 
-  static Widget? build({ required Map<String, dynamic> data }) {
+  static Widget build(Map<String, dynamic> data) {
 
     StateManager.addForm(key: MapManager.getAsString("name", data), form: FormBlocBuilder());
 

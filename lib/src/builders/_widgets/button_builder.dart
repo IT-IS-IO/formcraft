@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/builders/_functions/function_builder.dart';
 import 'package:formcraft/src/managers/MapManager.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
@@ -19,21 +18,21 @@ enum EventType {
 }
 
 
-class ButtonBuilder extends BuilderAbstract {
+class ButtonBuilder {
 
-  static Widget build({ required Map<String, dynamic> data }) {
+  const ButtonBuilder._();
 
-    switch (MapManager.getAsString("button", data)) {
-      case "text": return _buildTextButton(data: data);
-      case "icon": return _buildIconButton(data: data);
-      case "elevated": return _buildElevatedButton(data: data);
-      case "outlined": return _buildOutlinedButton(data: data);
-      default: return const SizedBox();
-    }
-
+  static Widget build(Map<String, dynamic> data) {
+    return switch (MapManager.getAsString("button", data)) {
+      "text" => _buildTextButton(data),
+      "icon" => _buildIconButton(data),
+      "elevated" => _buildElevatedButton(data),
+      "outlined" => _buildOutlinedButton(data),
+      _ => _buildTextButton(data),
+    };
   }
 
-  static Widget _buildTextButton({ required Map<String, dynamic> data }) {
+  static Widget _buildTextButton(Map<String, dynamic> data) {
     return TextButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),
@@ -41,14 +40,14 @@ class ButtonBuilder extends BuilderAbstract {
     );
   }
 
-  static Widget _buildIconButton({ required Map<String, dynamic> data }) {
+  static Widget _buildIconButton(Map<String, dynamic> data) {
     return IconButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       icon: const Icon(Icons.add),
     );
   }
 
-  static Widget _buildElevatedButton({ required Map<String, dynamic> data }) {
+  static Widget _buildElevatedButton(Map<String, dynamic> data) {
     return ElevatedButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),
@@ -56,7 +55,7 @@ class ButtonBuilder extends BuilderAbstract {
     );
   }
 
-  static Widget _buildOutlinedButton({ required Map<String, dynamic> data }) {
+  static Widget _buildOutlinedButton(Map<String, dynamic> data) {
     return OutlinedButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),

@@ -9,6 +9,7 @@ import 'package:formcraft/src/utils/methods/methods.dart';
 
 class TextStyleBuilder {
 
+  TextStyleBuilder._();
 
   static TextStyle build(Map<String, dynamic>? data) {
 
@@ -38,7 +39,6 @@ class TextStyleBuilder {
     );
   }
 
-
   static FontWeight _getFontWeight(String weight) {
     switch (weight) {
       case 'w100': return FontWeight.w100;
@@ -55,6 +55,5 @@ class TextStyleBuilder {
       default: return FontWeight.normal;
     }
   }
-
 
 }

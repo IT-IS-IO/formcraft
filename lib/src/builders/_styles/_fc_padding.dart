@@ -1,19 +1,19 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/managers/MapManager.dart';
 
 
-class PaddingBuilder {
+class IndentBuilder {
 
-  static EdgeInsetsGeometry getPadding(Map<String, dynamic> map) {
-    if (map.containsKey("padding")) {
-      return EdgeInsetsGeometry.lerp(
-        EdgeInsets.zero,
-        EdgeInsets.all( MapManager.getDouble("padding", map) ),
-        1.0
-      )!;
-    }
+  const IndentBuilder._();
+
+  static EdgeInsetsGeometry padding({ required Map<String, dynamic> data }) {
+    if (data.isEmpty) return EdgeInsets.zero;
+    return EdgeInsets.zero;
+  }
+
+  static EdgeInsetsGeometry margin({ required Map<String, dynamic> data }) {
+    if (data.isEmpty) return EdgeInsets.zero;
     return EdgeInsets.zero;
   }
 

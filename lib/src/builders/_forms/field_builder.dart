@@ -14,11 +14,11 @@ class FieldBuilder {
   static const IDENTITY_KEY = "type";
 
 
-  static Widget? build({ required Map<String, dynamic> data }) {
+  static Widget build({ required Map<String, dynamic> data }) {
 
     if (!StateManager.hasForm(MapManager.getAsString("form", data))) {
       print("Форма у поли отсутствует");
-      return null;
+      return const SizedBox.shrink();
     }
 
     SingleFieldBloc? field = _getField(data: data)!;
@@ -39,7 +39,7 @@ class FieldBuilder {
       return _getFieldWidget(data: data, fieldBloc: field);
     }
 
-    return null;
+    return const SizedBox.shrink();
   }
 
 
@@ -76,7 +76,5 @@ class FieldBuilder {
       validators: []
     );
   }
-
-
 
 }

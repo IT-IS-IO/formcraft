@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
@@ -7,11 +6,9 @@ import 'package:formcraft/src/managers/StateManager.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 
+class EventBuilder {
 
-class FunctionBuilder {
-
-  const FunctionBuilder._();
-
+  const EventBuilder._();
 
   static Function() build({ required Map<String, dynamic> data }) {
 
@@ -23,6 +20,7 @@ class FunctionBuilder {
     };
 
   }
+
 
   static Function() _submit({ required Map<String, dynamic> data }) {
     return () => print("Debug Print");

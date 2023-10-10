@@ -5,7 +5,7 @@ import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/builders/_widgets/appbar_builder.dart';
 import 'package:formcraft/src/managers/MapManager.dart';
 
-class ScaffoldBuilder extends BuilderAbstract {
+class ScaffoldBuilder {
 
 
   static Widget build({ required Map<String, dynamic> data }) {

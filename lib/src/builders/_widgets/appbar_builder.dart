@@ -1,12 +1,13 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 import '../../managers/MapManager.dart';
 
 
-class AppbarBuilder extends BuilderAbstract {
+class AppbarBuilder {
+
+  const AppbarBuilder._();
 
   static PreferredSize? build({ required Map<String, dynamic>? data }) {
 

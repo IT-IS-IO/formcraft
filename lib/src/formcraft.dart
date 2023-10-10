@@ -28,22 +28,26 @@ class _FormCraftState extends State<FormCraft> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: init,
-      builder: (_, AsyncSnapshot<Widget?> snapshot) {
+    return Material(
+      child: Scaffold(
+        body: FutureBuilder(
+            future: init,
+            builder: (_, AsyncSnapshot<Widget?> snapshot) {
 
-        if (snapshot.hasData) {
-          return snapshot.data ?? const Text("Hello FormCraft! (Has no data)");
-        }
+              if (snapshot.hasData) {
+                return snapshot.data ?? const Text("Hello FormCraft! (Has no data)");
+              }
 
-        if (snapshot.hasError) {
-          print(snapshot.stackTrace);
-          return Text(snapshot.error.toString());
-        }
+              if (snapshot.hasError) {
+                print(snapshot.stackTrace);
+                return Text(snapshot.error.toString());
+              }
 
-        return const CircularProgressIndicator();
+              return const CircularProgressIndicator();
 
-      }
+            }
+        ),
+      ),
     );
   }
 
