@@ -63,9 +63,10 @@ class GridBuilder {
 
   static Container container(Map<String, dynamic> data) {
     return Container(
-      // color: MapManager.getColor("color", data),
+      color: MapManager.getColor("color", data),
       // width: MapManager.getDouble("width", data),
-      // height: MapManager.getDouble("height", data),
+      height: 1000,
+      width: double.infinity,
       child: FormCraftBuilder.build(data: MapManager.get("child", data)),
     );
   }

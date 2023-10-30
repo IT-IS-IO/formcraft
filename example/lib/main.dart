@@ -23,106 +23,141 @@ class _MyAppState extends State<MyApp> {
       home: const Center(
         child: FormCraft(
           data: {
-            "type": "grid",
-            "widget": "column",
+            "type": "custom",
+            "widget": "pager",
             "children": [
-              {
-                "type": "grid",
-                "widget": "container",
-                "child": {
-                  "type": "form",
-                  "name": "FormCraft",
+              [
+                {
+                  "type": "grid",
+                  "widget": "container",
                   "child": {
-                    "type": "input",
-                    "name": "FormCraftInput",
-                    "form": "FormCraft",
-                    "initialValue": "Hello World!",
-                    "events": [
+                    "type": "grid",
+                    "widget": "column",
+                    "children": [
                       {
-                        "type": "condition",
-                        "conditions": [
-                          {
-                            "type": "equals",
-                            "value": "[FormCraft.FormCraftInput2]",
-                            "then": [
-                              {
-                                "type": "message",
-                                "message_type": "snackbar",
-                                "message": "Hello World!",
-                              },
-                              {
-                                "type": "change_field",
-                                "change": "[form.FormCraftInput.FormCraftInput2]",
-                                "to": "Changed This"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "or",
-                            "value": "Hello",
-                            "then": [
-                              {
-                                "type": "message",
-                                "message_type": "snackbar",
-                                "message": "HEHEHEHEHE",
-                              },
-                              {
-                                "type": "change_field",
-                                "change": "[FormCraft.FormCraftInput]",
-                                "to": "Hello World!"
-                              }
-                            ]
-                          }
-                        ]
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInput",
+                        "initialValue": "Hello World!",
                       },
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInput2",
+                        "initialValue": ""
+                      }
                     ]
-                  }
+                  },
                 }
-              },
-              {
-                "type": "grid",
-                "widget": "container",
-                "child": {
-                  "type": "input",
-                  "name": "FormCraftInput2",
-                  "form": "FormCraft",
-                  "initialValue": ""
+              ],
+              [
+                {
+                  "type": "grid",
+                  "widget": "container",
+                  "child": {
+                    "type": "grid",
+                    "widget": "column",
+                    "children": [
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu1",
+                        "initialValue": "Hello World!",
+                      },
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu13",
+                        "initialValue": ""
+                      }
+                    ]
+                  },
+                },
+                {
+                  "type": "grid",
+                  "widget": "container",
+                  "child": {
+                    "type": "grid",
+                    "widget": "column",
+                    "children": [
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu1222",
+                        "initialValue": "Hello World!",
+                      },
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu1121231",
+                        "initialValue": ""
+                      }
+                    ]
+                  },
+                },
+                {
+                  "type": "grid",
+                  "widget": "container",
+                  "child": {
+                    "type": "grid",
+                    "widget": "column",
+                    "children": [
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu1124124",
+                        "initialValue": "Hello World!",
+                      },
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu1124124",
+                        "initialValue": ""
+                      }
+                    ]
+                  },
                 }
-              },
-              // {
-              //   "type": "grid",
-              //   "widget": "container",
-              //   "child": {
-              //     "type": "button",
-              //     "button": "text",
-              //     "text": "Submit",
-              //     "event.long": {
-              //       "type": "submit",
-              //       "method": "debug",
-              //     }
-              //   }
-              // },
-              // {
-              //   "type": "button",
-              //   "button": "icon",
-              //   "text": "Submit",
-              //   "event": {
-              //     "type": "method",
-              //     "method": "modal",
-              //     "widget": {
-              //       "type": "grid",
-              //       "widget": "container",
-              //       "child": {
-              //         "type": "text",
-              //         "title": "Hello World!"
-              //       }
-              //     }
-              //   }
-              // }
+              ],
+              [
+                {
+                  "type": "grid",
+                  "widget": "container",
+                  "child": {
+                    "type": "grid",
+                    "widget": "column",
+                    "children": [
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu11212124124",
+                        "initialValue": "Hello World!",
+                      },
+                      {
+                        "type": "form",
+                        "widget": "input",
+                        "form": "FormCraft",
+                        "name": "FormCraftInpu1124124",
+                        "initialValue": ""
+                      }
+                    ]
+                  },
+                }
+              ],
             ]
           }
         ),
       ),
     );
   }
+
+
 }

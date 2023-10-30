@@ -45,3 +45,15 @@ class FormManager extends Manager {
 
 
 }
+
+
+class FormBlocBuilder<T> extends FormBloc<T, T> {
+
+  FormBlocBuilder() : super(isLoading: false);
+
+  @override
+  void onSubmitting() { }
+
+}
+
+

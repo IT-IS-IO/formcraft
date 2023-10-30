@@ -16,6 +16,8 @@ dependencies:
   form_bloc: ^0.31.0
   flutter_form_bloc: ^0.31.0
   http:
+  expandable_page_view: ^1.0.17
+
 
 dev_dependencies:
   flutter_test:

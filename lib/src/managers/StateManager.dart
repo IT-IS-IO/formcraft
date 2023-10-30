@@ -16,12 +16,7 @@ class StateManager {
 
   static void addField({ required String key, required SingleFieldBloc field}) => _field.set<SingleFieldBloc>(key, field);
 
-  static void addFieldForm({ required String key, FormBloc? form, required SingleFieldBloc field, int? step }) {
-    if (form == null) {
-      print("Форма у поля отсутствует");
-      return;
-    }
-    addForm(key: key, form: form);
+  static void addFieldForm({ required String key, required SingleFieldBloc field, int? step }) {
     _form.addFieldBloc(key: key, field: field, step: step);
   }
 
@@ -30,17 +25,8 @@ class StateManager {
 
   static bool hasField(String key) => _field.has(key);
 
-
-  static FormManager get formManager => _form;
-
-  static FieldManager get fieldManager => _field;
-
-  factory StateManager() => _getInstance;
-
-  static StateManager? _instance;
-
-  StateManager._internal();
-
-  static StateManager get _getInstance => _instance ?? StateManager._internal();
+  StateManager._();
 
 }
+
+
