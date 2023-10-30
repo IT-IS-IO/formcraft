@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_functions/function_builder.dart';
-import 'package:formcraft/src/managers/MapManager.dart';
+import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 
@@ -23,7 +23,7 @@ class ButtonBuilder {
   const ButtonBuilder._();
 
   static Widget build(Map<String, dynamic> data) {
-    return switch (MapManager.getAsString("button", data)) {
+    return switch (ValueUtil.getAsString("button", data)) {
       "text" => _buildTextButton(data),
       "icon" => _buildIconButton(data),
       "elevated" => _buildElevatedButton(data),
@@ -36,7 +36,7 @@ class ButtonBuilder {
     return TextButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),
-      child: Text(MapManager.getAsString("text", data)),
+      child: Text(ValueUtil.getAsString("text", data)),
     );
   }
 
@@ -51,7 +51,7 @@ class ButtonBuilder {
     return ElevatedButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),
-      child: Text(MapManager.getAsString("text", data)),
+      child: Text(ValueUtil.getAsString("text", data)),
     );
   }
 
@@ -59,26 +59,26 @@ class ButtonBuilder {
     return OutlinedButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),
-      child: Text(MapManager.getAsString("text", data)),
+      child: Text(ValueUtil.getAsString("text", data)),
     );
   }
 
 
   static Function()? _getEvent({ required Map<String, dynamic> data, EventType? type }) {
 
-    if (MapManager.has("event", data) && (isNull(type) || type == EventType.event))  {
+    if (ValueUtil.has("event", data) && (isNull(type) || type == EventType.event))  {
       return FunctionBuilder.build(data: data["event"]);
     }
 
-    if (MapManager.has("event.double", data) && type == EventType.double) {
+    if (ValueUtil.has("event.double", data) && type == EventType.double) {
       return FunctionBuilder.build(data: data['event.double']);
     }
 
-    if (MapManager.has("event.long", data) && type == EventType.long) {
+    if (ValueUtil.has("event.long", data) && type == EventType.long) {
       return FunctionBuilder.build(data: data['event.long']);
     }
 
-    // if (MapManager.has("event.hover", data) && type == EventType.hover) {
+    // if (ValueUtil.has("event.hover", data) && type == EventType.hover) {
     //   return FunctionBuilder.build(data: data['hover.event']);
     // }
 

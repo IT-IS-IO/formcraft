@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
-import 'package:formcraft/src/managers/MapManager.dart';
+import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 import 'package:formcraft/src/managers/StateManager.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
@@ -12,7 +12,7 @@ class EventBuilder {
 
   static Function() build({ required Map<String, dynamic> data }) {
 
-    return switch (MapManager.getAsString("event", data)) {
+    return switch (ValueUtil.getAsString("event", data)) {
       "submit" => _submit(data: data),
       "modal" => _modal(data: data),
       "debug" => _debugPrint(),

@@ -22,138 +22,174 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeData.dark(useMaterial3: true),
       home: const Center(
         child: FormCraft(
-          data: {
-            "type": "custom",
-            "widget": "pager",
-            "children": [
-              [
+            data: {
+              "name": "FormCraft",
+              "type": "form",
+              // <action-attrs name="action-test">
+              //   <attribute ... if="code == 'some'" expr="eval: __self__?.customer?.fullName" />
+              //   <attribute ... if="#{code == 'some'}" expr="#{ __self__.customer.fullName }" />
+              //   <attribute ... expr="call: com.axelor.contact.SomeController:method" />
+              //   <attribute ... expr="select: s.fullName from Contact s where s.code = :code" />
+              // </action-attrs>
+              "actions": [
                 {
-                  "type": "grid",
-                  "widget": "container",
-                  "child": {
-                    "type": "grid",
-                    "widget": "column",
-                    "children": [
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInput",
-                        "initialValue": "Hello World!",
-                      },
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInput2",
-                        "initialValue": ""
-                      }
-                    ]
-                  },
+                  "name": "action-test",
+                  "attributes": [
+                    {
+                      "name": "attribute",
+                      "if": "[FormCraft.FormCraftInput] == 'some'",
+                      "expr": "eval: [FormCraft.FormCraftInput765]"
+                    },
+                    {
+                      "name": "attribute",
+                      "if": "#{code == 'some'}",
+                      "expr": "#{ __self__.customer.fullName }"
+                    },
+                    {
+                      "name": "attribute",
+                      "expr": "call: com.axelor.contact.SomeController:method"
+                    },
+                    {
+                      "name": "attribute",
+                      "expr": "select: s.fullName from Contact s where s.code = :code"
+                    }
+                  ]
                 }
               ],
-              [
-                {
-                  "type": "grid",
-                  "widget": "container",
-                  "child": {
-                    "type": "grid",
-                    "widget": "column",
-                    "children": [
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu1",
-                        "initialValue": "Hello World!",
+              "build": {
+                "type": "custom",
+                "widget": "pager",
+                "children": [
+                  [
+                    {
+                      "type": "grid",
+                      "widget": "container",
+                      "child": {
+                        "type": "grid",
+                        "widget": "column",
+                        "mainAxisAlignment": "center",
+                        "crossAxisAlignment": "center",
+                        "children": [
+                          {
+                            "type": "text",
+                            "widget": "text",
+                            "data": "Hey! It's warioddly",
+                          },
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInput",
+                            "actions": "action-test",
+                            "initialValue": "Hello World!",
+                          },
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInput765",
+                            "initialValue": "Hello 124124124124124!",
+                          },
+                        ]
                       },
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu13",
-                        "initialValue": ""
-                      }
-                    ]
-                  },
-                },
-                {
-                  "type": "grid",
-                  "widget": "container",
-                  "child": {
-                    "type": "grid",
-                    "widget": "column",
-                    "children": [
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu1222",
-                        "initialValue": "Hello World!",
+                    }
+                  ],
+                  [
+                    {
+                      "type": "grid",
+                      "widget": "container",
+                      "child": {
+                        "type": "grid",
+                        "widget": "column",
+                        "children": [
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu13",
+                            "initialValue": ""
+                          }
+                        ]
                       },
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu1121231",
-                        "initialValue": ""
-                      }
-                    ]
-                  },
-                },
-                {
-                  "type": "grid",
-                  "widget": "container",
-                  "child": {
-                    "type": "grid",
-                    "widget": "column",
-                    "children": [
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu1124124",
-                        "initialValue": "Hello World!",
+                    },
+                    {
+                      "type": "grid",
+                      "widget": "container",
+                      "child": {
+                        "type": "grid",
+                        "widget": "column",
+                        "children": [
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu1222",
+                            "initialValue": "Hello World!",
+                          },
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu1121231",
+                            "initialValue": ""
+                          }
+                        ]
                       },
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu1124124",
-                        "initialValue": ""
-                      }
-                    ]
-                  },
-                }
-              ],
-              [
-                {
-                  "type": "grid",
-                  "widget": "container",
-                  "child": {
-                    "type": "grid",
-                    "widget": "column",
-                    "children": [
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu11212124124",
-                        "initialValue": "Hello World!",
+                    },
+                    {
+                      "type": "grid",
+                      "widget": "container",
+                      "child": {
+                        "type": "grid",
+                        "widget": "column",
+                        "children": [
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu1124124",
+                            "initialValue": "Hello World!",
+                          },
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu1124124",
+                            "initialValue": ""
+                          }
+                        ]
                       },
-                      {
-                        "type": "form",
-                        "widget": "input",
-                        "form": "FormCraft",
-                        "name": "FormCraftInpu1124124",
-                        "initialValue": ""
-                      }
-                    ]
-                  },
-                }
-              ],
-            ]
-          }
+                    }
+                  ],
+                  [
+                    {
+                      "type": "grid",
+                      "widget": "container",
+                      "child": {
+                        "type": "grid",
+                        "widget": "column",
+                        "children": [
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu11212124124",
+                            "initialValue": "Hello World!",
+                          },
+                          {
+                            "type": "form",
+                            "widget": "input",
+                            "form": "FormCraft",
+                            "name": "FormCraftInpu1124124",
+                            "initialValue": ""
+                          }
+                        ]
+                      },
+                    }
+                  ],
+                ]
+              }
+            }
         ),
       ),
     );

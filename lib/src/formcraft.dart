@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/managers/StateManager.dart';
-
+import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 
 class FormCraft extends StatefulWidget {
 
@@ -21,8 +21,13 @@ class _FormCraftState extends State<FormCraft> {
   @override
   void initState() {
     super.initState();
-    init = Future.value(FormCraftBuilder.build(data: widget.data));
-    StateManager.context = context;
+
+    StateManager.hasInstance();
+    StateManager.init(context, widget.data);
+
+    init = Future.value(FormCraftBuilder.build(data: ValueUtil.get("build", widget.data)));
+
+
   }
 
 
@@ -49,6 +54,13 @@ class _FormCraftState extends State<FormCraft> {
         ),
       ),
     );
+  }
+
+
+  @override
+  void dispose() {
+    StateManager.dispose();
+    super.dispose();
   }
 
 

@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:formcraft/src/builders/_typographies/_text_builder.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
-
-import '../../managers/MapManager.dart';
 
 
 class AppbarBuilder {
@@ -16,7 +15,7 @@ class AppbarBuilder {
     return PreferredSize(
       preferredSize: const Size.fromHeight(50.0),
       child: AppBar(
-        title: Text(MapManager.getAsString("title", data!)),
+        title: TextBuilder.build(data!["title"]),
       )
     );
 

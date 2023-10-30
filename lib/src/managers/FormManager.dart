@@ -8,7 +8,7 @@ import 'package:formcraft/src/utils/methods/methods.dart';
 class FormManager extends Manager {
 
 
-  bool addFieldBloc({ required String key, required SingleFieldBloc field, int? step }) {
+  bool addFieldBloc<T>({ required String key, required SingleFieldBloc field, int? step }) {
 
     if (!has(key)) return false;
 
@@ -55,5 +55,6 @@ class FormBlocBuilder<T> extends FormBloc<T, T> {
   void onSubmitting() { }
 
 }
+
 
 

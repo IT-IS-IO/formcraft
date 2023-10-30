@@ -1,7 +1,7 @@
 //
 // import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 // import 'package:form_bloc/form_bloc.dart';
-// import 'package:formcraft/src/managers/MapManager.dart';
+// import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 // import 'package:formcraft/src/managers/StateManager.dart';
 // import 'package:formcraft/src/utils/methods/methods.dart';
 // import 'package:formcraft/src/utils/typedefs/fc_event_typedefs.dart';
@@ -14,7 +14,7 @@
 //   static OnValueChange onValueChange({ required Map<String, dynamic> data }) {
 //     return (FieldBlocState<dynamic, dynamic, dynamic> previous, FieldBlocState<dynamic, dynamic, dynamic> current) async* {
 //
-//       for (Map<String, dynamic> event in MapManager.getList("events", data)) _buildEvent(data: event);
+//       for (Map<String, dynamic> event in ValueUtil.getList("events", data)) _buildEvent(data: event);
 //
 //      };
 //   }
@@ -22,7 +22,7 @@
 //
 //
 //   static void _buildEvent({ required Map<String, dynamic> data }) {
-//     switch (MapManager.getAsString("type", data)) {
+//     switch (ValueUtil.getAsString("type", data)) {
 //       case "condition": _buildConditions(data: data); break;
 //       // case "message": _buildMessage(data: data); break;
 //       default: break;
@@ -34,7 +34,7 @@
 //
 //     // conditions: [{type: equals, value: [FormCraft.FormCraftInput2], then: [{type: message, message_type: snackbar, message: Hello World!}, {type: change_field, change: [form.FormCraftInput.FormCraftInput2], to: Changed This}]}, {type: or, value: Hello, then: [{type: message, message_type: snackbar, message: HEHEHEHEHE}, {type: change_field, change: [FormCraft.FormCraftInput], to: Hello World!}]
 //
-//     List<Map<String, dynamic>> conditions = MapManager.getList("conditions", data);
+//     List<Map<String, dynamic>> conditions = ValueUtil.getList("conditions", data);
 //
 //     for (Map<String, dynamic> condition in conditions)
 //       _buildCondition(data: condition);
@@ -48,7 +48,7 @@
 //     print("data: $data");
 //
 //     if (data.containsKey("value")) {
-//       String value = MapManager.getAsString("value", data);
+//       String value = ValueUtil.getAsString("value", data);
 //       if (value.contains("[")) {
 //         String key = value.replaceAll("[", "").replaceAll("]", "");
 //         if (StateManager.hasField(key)) {
@@ -69,7 +69,7 @@
 //     print("data2222: $data");
 //
 //     if (data.containsKey("value")) {
-//       String value = MapManager.getAsString("value", data);
+//       String value = ValueUtil.getAsString("value", data);
 //       if (value.contains("[")) {
 //         String key = value.replaceAll("[", "").replaceAll("]", "");
 //         if (StateManager.hasField(key)) {
@@ -89,7 +89,7 @@
 //     print("data: $data");
 //
 //     if (data.containsKey("value")) {
-//       String value = MapManager.getAsString("value", data);
+//       String value = ValueUtil.getAsString("value", data);
 //       if (value.contains("[")) {
 //         String key = value.replaceAll("[", "").replaceAll("]", "");
 //         if (StateManager.hasField(key)) {

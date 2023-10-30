@@ -4,7 +4,7 @@
 
 
 import 'package:flutter/material.dart' show FontWeight, TextStyle;
-import 'package:formcraft/src/managers/MapManager.dart';
+import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 class TextStyleBuilder {
@@ -16,8 +16,8 @@ class TextStyleBuilder {
     if (isNull(data)) return const TextStyle();
     return const TextStyle();
     return TextStyle(
-      color: MapManager.getColor('color', data!),
-      fontSize: MapManager.getDouble('fontSize', data),
+      color: ValueUtil.getColor('color', data!),
+      fontSize: ValueUtil.getDouble('fontSize', data),
       fontWeight: _getFontWeight(data['weight']),
       fontStyle: data['fontStyle'],
       letterSpacing: data['letterSpacing'],

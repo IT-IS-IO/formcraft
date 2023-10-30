@@ -64,4 +64,12 @@ class AlignBuilder {
   }
 
 
+  static Axis direction(String alignment) {
+    return switch (alignment) {
+      "horizontal" => Axis.horizontal,
+      "vertical" => Axis.vertical,
+      _ => Axis.horizontal,
+    };
+  }
+
 }
