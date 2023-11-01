@@ -69,32 +69,21 @@ class _PagerDrawerState extends State<PagerDrawer> {
   Widget build(BuildContext context) {
 
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: const [ BoxShadow(
+      decoration: const BoxDecoration(
+        boxShadow: [ BoxShadow(
           color: Color.fromRGBO(0, 0, 0, 0.08),
           blurRadius: 14,
           offset: Offset(0, 2),
         ) ],
       ),
       clipBehavior: Clip.hardEdge,
-      child: Column(
-        children: [
-
-          Expanded(
-            child: Pager(
-              controller: controller.pageController,
-              animationDuration: config.animationDuration,
-              alignment: config.alignment,
-              keepAlive: config.keepAlive,
-              physics: config.parentPhysics,
-              children: pagers,
-            ),
-          ),
-
-          const PagerNavigationDrawer(),
-
-        ],
+      child: Pager(
+        controller: controller.pageController,
+        animationDuration: config.animationDuration,
+        alignment: config.alignment,
+        keepAlive: config.keepAlive,
+        physics: config.parentPhysics,
+        children: pagers,
       )
     );
 

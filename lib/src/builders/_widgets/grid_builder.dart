@@ -68,8 +68,6 @@ class GridBuilder {
     return Container(
       color: ValueUtil.getColor("color", data),
       // width: ValueUtil.getDouble("width", data),
-      height: 1000,
-      width: double.infinity,
       child: FormCraftBuilder.build(data: ValueUtil.get("child", data)),
     );
   }
