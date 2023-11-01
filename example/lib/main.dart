@@ -59,134 +59,206 @@ class _MyAppState extends State<MyApp> {
               "build": {
                 "type": "custom",
                 "widget": "pager",
+                "debug": true,
                 "children": [
-                  [
-                    {
-                      "type": "grid",
-                      "widget": "container",
-                      "child": {
+                  {
+                    "title": "Page 1",
+                    "children": [
+                      {
                         "type": "grid",
-                        "widget": "column",
-                        "mainAxisAlignment": "center",
-                        "crossAxisAlignment": "center",
-                        "children": [
-                          {
-                            "type": "text",
-                            "widget": "text",
-                            "data": "Hey! It's warioddly",
-                          },
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInput",
-                            "actions": "action-test",
-                            "initialValue": "Hello World!",
-                          },
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInput765",
-                            "initialValue": "Hello 124124124124124!",
-                          },
-                        ]
-                      },
-                    }
-                  ],
-                  [
-                    {
-                      "type": "grid",
-                      "widget": "container",
-                      "child": {
+                        "widget": "container",
+                        "child": {
+                          "type": "grid",
+                          "widget": "column",
+                          "mainAxisAlignment": "center",
+                          "crossAxisAlignment": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "widget": "text",
+                              "data": "Hey! It's warioddly",
+                            },
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInput",
+                              "actions": "action-test",
+                              "initialValue": "Hello World!",
+                            },
+                            {
+                              "type": "form",
+                              "widget": "radioGroup",
+                              "form": "FormCraft",
+                              "name": "FormCraftRadioGroup",
+                              "items": [
+                                {
+                                  "value": "1",
+                                  "label": "One"
+                                },
+                                {
+                                  "value": "2",
+                                  "label": "Two"
+                                },
+                                {
+                                  "value": "3",
+                                  "label": "Three"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "form",
+                              "widget": "checkbox",
+                              "form": "FormCraft",
+                              "name": "FormCraftCheckbox",
+                              "body": {
+                                "type": "text",
+                                "widget": "text",
+                                "data": "Hey! It's warioddly",
+                              },
+                            },
+                            {
+                              "type": "form",
+                              "widget": "checkboxGroup",
+                              "form": "FormCraft",
+                              "name": "FormCraftCheckboxGroup",
+                              "items": [
+                                {
+                                  "value": "1",
+                                  "label": "One"
+                                },
+                                {
+                                  "value": "2",
+                                  "label": "Two"
+                                },
+                                {
+                                  "value": "3",
+                                  "label": "Three"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInput765",
+                              "initialValue": "Hello 124124124124124!",
+                            },
+                            {
+                              "type": "button",
+                              "widget": "text",
+                              "text": {
+                                "type": "text",
+                                "widget": "text",
+                                "data": "Hey! It's warioddly",
+                              },
+                              "event": {
+                                "event": "debug",
+                              }
+                            }
+                          ]
+                        },
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Page 2",
+                    "children": [
+                      {
                         "type": "grid",
-                        "widget": "column",
-                        "children": [
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu13",
-                            "initialValue": ""
-                          }
-                        ]
+                        "widget": "container",
+                        "child": {
+                          "type": "grid",
+                          "widget": "column",
+                          "children": [
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInput",
+                            },
+                          ]
+                        },
                       },
-                    },
-                    {
-                      "type": "grid",
-                      "widget": "container",
-                      "child": {
+                      {
                         "type": "grid",
-                        "widget": "column",
-                        "children": [
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu1222",
-                            "initialValue": "Hello World!",
-                          },
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu1121231",
-                            "initialValue": ""
-                          }
-                        ]
+                        "widget": "container",
+                        "child": {
+                          "type": "grid",
+                          "widget": "column",
+                          "children": [
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInpu1222",
+                              "initialValue": "Hello World!",
+                            },
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInpu1121231",
+                              "initialValue": ""
+                            }
+                          ]
+                        },
                       },
-                    },
-                    {
-                      "type": "grid",
-                      "widget": "container",
-                      "child": {
+                      {
                         "type": "grid",
-                        "widget": "column",
-                        "children": [
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu1124124",
-                            "initialValue": "Hello World!",
-                          },
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu1124124",
-                            "initialValue": ""
-                          }
-                        ]
-                      },
-                    }
-                  ],
-                  [
-                    {
-                      "type": "grid",
-                      "widget": "container",
-                      "child": {
+                        "widget": "container",
+                        "child": {
+                          "type": "grid",
+                          "widget": "column",
+                          "children": [
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInpu1124124",
+                              "initialValue": "Hello World!",
+                            },
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInpu1124124",
+                              "initialValue": ""
+                            }
+                          ]
+                        },
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Page 3",
+                    "children": [
+                      {
                         "type": "grid",
-                        "widget": "column",
-                        "children": [
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu11212124124",
-                            "initialValue": "Hello World!",
-                          },
-                          {
-                            "type": "form",
-                            "widget": "input",
-                            "form": "FormCraft",
-                            "name": "FormCraftInpu1124124",
-                            "initialValue": ""
-                          }
-                        ]
-                      },
-                    }
-                  ],
+                        "widget": "container",
+                        "child": {
+                          "type": "grid",
+                          "widget": "column",
+                          "children": [
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInpu11212124124",
+                              "initialValue": "Hello World!",
+                            },
+                            {
+                              "type": "form",
+                              "widget": "input",
+                              "form": "FormCraft",
+                              "name": "FormCraftInpu1124124",
+                              "initialValue": ""
+                            }
+                          ]
+                        },
+                      }
+                    ],
+                  }
                 ]
               }
             }

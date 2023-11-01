@@ -13,11 +13,14 @@ class FlexBuilder {
 
 
   static Widget build(Map<String, dynamic> data) {
+
+    String type = ValueUtil.getAsString("widget", data);
+
     return switch (ValueUtil.getAsString("widget", data)) {
       "flex" => _flex(data),
       "flexible" => _flexible(data),
       "expanded" => _expanded(data),
-      _ => const SizedBox.shrink(),
+      _ => throw Exception("Unknown Flex widget $type")
     };
   }
 

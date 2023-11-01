@@ -30,10 +30,6 @@ class EventBuilder {
   static Function() _modal({ required Map<String, dynamic> data }) {
     return () async {
 
-      print("Modal Opened");
-
-      print(data);
-
       if (isNull(StateManager.context)) return;
 
       await showCupertinoDialog(

@@ -10,8 +10,6 @@ class FormManager extends Manager {
 
   bool addFieldBloc<T>({ required String key, required SingleFieldBloc field, int? step }) {
 
-    if (!has(key)) return false;
-
     if (!isNull(step)) data[key]!.addFieldBloc(step: step!, fieldBloc: field);
     else data[key]!.addFieldBloc(fieldBloc: field);
 

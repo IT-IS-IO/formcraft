@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/widgets/other/pager/core/controllers/navigator_controller.dart';
-import 'package:formcraft/src/widgets/other/pager/core/controllers/pager_controller.dart';
+import 'package:formcraft/src/addons/other/pager/core/controllers/navigator_controller.dart';
+import 'package:formcraft/src/addons/other/pager/core/controllers/pager_controller.dart';
 import 'package:provider/provider.dart';
 
 
@@ -157,15 +157,14 @@ class PagerNavigationDrawer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         isMobile
-            ? Flexible(
-            child: Icon(Icons.arrow_back, color: Colors.white))
-            : Flexible(child: Text('Back',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+            ? const Flexible(child: Icon(Icons.arrow_back, color: Colors.white))
+            : const Flexible(child: Text('Back',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
         ),
       ],
     );
@@ -178,10 +177,10 @@ class PagerNavigationDrawer extends StatelessWidget {
       children: [
 
         if (isMobile && !controller.processing) ...[
-          Icon(Icons.arrow_forward, color: Colors.white),
+          const Icon(Icons.arrow_forward, color: Colors.white),
         ],
 
-        if (!isMobile) Flexible(
+        if (!isMobile) const Flexible(
           child: Text(
             'Forward',
             style: TextStyle(
@@ -196,7 +195,7 @@ class PagerNavigationDrawer extends StatelessWidget {
 
           if (!isMobile) const SizedBox(width: 8),
 
-          SizedBox(
+          const SizedBox(
             height: 24,
             width: 24,
             child: ColorFiltered(
@@ -204,7 +203,7 @@ class PagerNavigationDrawer extends StatelessWidget {
                   Colors.white,
                   BlendMode.srcATop,
                 ),
-                child: const CupertinoActivityIndicator()
+                child: CupertinoActivityIndicator()
             ),
           ),
 

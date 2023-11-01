@@ -11,9 +11,12 @@ class CustomWidgetBuilder {
   CustomWidgetBuilder._();
 
   static Widget build(Map<String, dynamic> data) {
-    return switch (ValueUtil.getAsString("widget", data)) {
+
+    String type = ValueUtil.getAsString("widget", data);
+
+    return switch (type) {
       "pager" => PagerBuilder.build(data),
-      _ => const SizedBox.shrink(),
+      _ => throw Exception("Unknown CustomWidget widget $type")
     };
   }
 

@@ -5,18 +5,17 @@
 
 import 'package:flutter/material.dart' show FontWeight, TextStyle;
 import 'package:formcraft/src/utils/classes/ValueUtil.dart';
-import 'package:formcraft/src/utils/methods/methods.dart';
 
 class TextStyleBuilder {
 
   TextStyleBuilder._();
 
-  static TextStyle build(Map<String, dynamic>? data) {
+  static TextStyle build(Map<String, dynamic> data) {
 
-    if (isNull(data)) return const TextStyle();
+    if (data.isEmpty) return const TextStyle();
     return const TextStyle();
     return TextStyle(
-      color: ValueUtil.getColor('color', data!),
+      color: ValueUtil.getColor('color', data),
       fontSize: ValueUtil.getDouble('fontSize', data),
       fontWeight: _getFontWeight(data['weight']),
       fontStyle: data['fontStyle'],
@@ -55,5 +54,6 @@ class TextStyleBuilder {
       default: return FontWeight.normal;
     }
   }
+
 
 }

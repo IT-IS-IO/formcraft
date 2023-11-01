@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_functions/function_builder.dart';
+import 'package:formcraft/src/builders/_events/function_builder.dart';
+import 'package:formcraft/src/builders/_widgets/text_builder.dart';
 import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
@@ -36,7 +37,7 @@ class ButtonBuilder {
     return TextButton(
       onPressed: _getEvent(data: data, type: EventType.event),
       onLongPress: _getEvent(data: data, type: EventType.long),
-      child: Text(ValueUtil.getAsString("text", data)),
+      child: TextBuilder.build(ValueUtil.get("text", data)),
     );
   }
 

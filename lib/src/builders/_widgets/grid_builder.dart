@@ -13,13 +13,16 @@ class GridBuilder {
 
 
   static Widget build(Map<String, dynamic> data) {
-    return switch (ValueUtil.getAsString("widget", data)) {
+
+    String type = ValueUtil.getAsString("widget", data);
+
+    return switch (type) {
       "container" => container(data),
       "column" => column(data),
       "center" => center(data),
       "row" => row(data),
       "grid" => grid(data),
-      _ => const SizedBox.shrink(),
+      _ => throw Exception("Unknown Grid widget $type")
     };
   }
 

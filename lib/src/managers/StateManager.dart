@@ -21,23 +21,27 @@ class StateManager {
 
   static void addFormBloc({ required String key }) => _form.set<FormBloc>(key, FormBlocBuilder());
 
-  static void addFieldBloc({ required String key, required SingleFieldBloc field, int? step }) {
+  static void addFieldBloc({ required String key, required String formKey, required SingleFieldBloc field, int? step }) {
 
-    addFormBloc(key: key);
+    if (!_form.has(formKey)) addFormBloc(key: formKey);
 
-    _form.addFieldBloc<SingleFieldBloc>(key: key, field: field, step: step);
+    _form.addFieldBloc<SingleFieldBloc>(key: formKey, field: field, step: step);
+
+    _field.set(key, field);
 
   }
 
+
   static bool hasForm(String key) => _form.has(key);
 
-  static bool hasField(String key) => _field.has(key);
+  static bool hasFieldBloc(String key) => _field.has(key);
 
   static bool hasAction(String key) => action.has(key);
-  
-  static FormBloc getForm(String key) => _form.get(key);
 
-  static SingleFieldBloc getField(String key) => _field.get(key);
+  
+  static FormBloc getFormBloc(String key) => _form.get(key);
+
+  static SingleFieldBloc getFieldBloc(String key) => _field.get(key);
 
   static Map<String, dynamic> getAction(String key) => action.get(key);
 

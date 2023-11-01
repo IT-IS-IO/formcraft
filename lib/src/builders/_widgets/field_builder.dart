@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'package:formcraft/src/builders/_functions/action_builder.dart';
+import 'package:formcraft/src/builders/_events/action_builder.dart';
+import 'package:formcraft/src/builders/_widgets/text_builder.dart';
+import 'package:formcraft/src/utils/classes/FieldUtil.dart';
+import 'package:formcraft/src/utils/classes/MapUtil.dart';
 import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 import 'package:formcraft/src/managers/StateManager.dart';
 
@@ -11,10 +14,15 @@ class FieldBuilder {
 
   static Widget build(Map<String, dynamic> data) {
 
+    if (MapUtil.has("name", data) && StateManager.hasFieldBloc(ValueUtil.getAsString("name", data))) {
+      return _buildFieldWidget(data: data, fieldBloc: StateManager.getFieldBloc(ValueUtil.getAsString("name", data)));
+    }
+
     SingleFieldBloc fieldBloc = _buildFieldBloc(data: data);
 
     StateManager.addFieldBloc(
-      key: ValueUtil.getAsString("form", data),
+      key: ValueUtil.getAsString("name", data),
+      formKey: ValueUtil.getAsString("form", data),
       step: ValueUtil.tryGetInt("step", data),
       field: fieldBloc,
     );
@@ -47,9 +55,23 @@ class FieldBuilder {
 
     return switch (type) {
       "input" => TextFieldBlocBuilder(textFieldBloc: fieldBloc as TextFieldBloc),
+      "checkbox" => CheckboxFieldBlocBuilder(
+        booleanFieldBloc: fieldBloc as BooleanFieldBloc,
+        body: TextBuilder.build(ValueUtil.get("body", data)),
+      ),
+      "radioGroup" => RadioButtonGroupFieldBlocBuilder(
+        selectFieldBloc: fieldBloc as SelectFieldBloc,
+        itemBuilder: FieldUtil.itemBuilder,
+        canTapItemTile: true,
+      ),
+      "checkboxGroup" => CheckboxGroupFieldBlocBuilder(
+        multiSelectFieldBloc: fieldBloc as MultiSelectFieldBloc,
+        itemBuilder: FieldUtil.itemBuilder,
+        canTapItemTile: true,
+      ),
       "select" => RadioButtonGroupFieldBlocBuilder(
         selectFieldBloc: fieldBloc as SelectFieldBloc,
-        itemBuilder: (context, item) => item,
+        itemBuilder: FieldUtil.itemBuilder
       ),
       _ => throw Exception("Unknown field widget $type")
     };
@@ -63,6 +85,9 @@ class FieldBuilder {
     return switch (type) {
       "input" => _buildInputField(data: data),
       "select" => _buildSelectField(data: data),
+      "checkbox" => _buildCheckboxField(data: data),
+      "checkboxGroup" => _buildMultiSelectField(data: data),
+      "radioGroup" => _buildSelectField(data: data),
       _ => throw Exception("Unknown field bloc $type")
     } as SingleFieldBloc;
   }
@@ -81,8 +106,26 @@ class FieldBuilder {
     return SelectFieldBloc(
       name: ValueUtil.getAsString("name", data),
       initialValue: ValueUtil.getAsString("initialValue", data),
-      validators: []
+      items: FieldUtil.buildOptions(data),
+    );
+  }
+
+
+  static BooleanFieldBloc _buildCheckboxField({ required Map<String, dynamic> data }) {
+    return BooleanFieldBloc(
+      name: ValueUtil.getAsString("name", data),
+      initialValue: ValueUtil.getBool("initialValue", data),
+    );
+  }
+
+
+  static MultiSelectFieldBloc _buildMultiSelectField({ required Map<String, dynamic> data }) {
+    return MultiSelectFieldBloc(
+      name: ValueUtil.getAsString("name", data),
+      items: FieldUtil.buildOptions(data),
     );
   }
 
 }
+
+

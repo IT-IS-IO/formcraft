@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_typographies/_text_builder.dart';
+import 'package:formcraft/src/builders/_widgets/text_builder.dart';
 import 'package:formcraft/src/utils/methods/methods.dart';
 
 

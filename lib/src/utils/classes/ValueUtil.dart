@@ -1,61 +1,51 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:formcraft/src/utils/classes/MapUtil.dart';
 
 class ValueUtil {
 
 
-  static bool has(String key, Map<String, dynamic> data) => data.containsKey(key);
+  static bool has(String key, Map<String, dynamic> data) => MapUtil.has(key, data);
 
 
   static Map<String, dynamic> get(String key, Map<String, dynamic> data) {
-    if (data.containsKey(key)) {
-      return data[key];
-    }
-    return {};
+    return MapUtil.has(key, data) ? data[key] : {};
   }
 
 
   static String getAsString(String key, Map<String, dynamic> data, { String defaultValue = "" }) {
-    return data.containsKey(key) ? data[key] : defaultValue;
+    return MapUtil.has(key, data) ? data[key] : defaultValue;
   }
 
 
-  static Color getColor(String key, Map<String, dynamic> data) {
-    if (data.containsKey(key)) {
-      return Color(int.parse(data[key]));
-    }
-    return Colors.grey;
+  static Color getColor(String key, Map<String, dynamic> data, { Color defaultValue = Colors.grey }) {
+    return MapUtil.has(key, data) ? Color(int.parse(data[key])) : defaultValue;
   }
 
 
   static double getDouble(String key, Map<String, dynamic> data) {
-    if (data.containsKey(key)) {
-      return double.parse(data[key]);
-    }
-    return 0.0;
+    return MapUtil.has(key, data) ? double.parse(data[key]) : 0.0;
+  }
+
+
+  static bool getBool(String key, Map<String, dynamic> data, { bool defaultValue = false }) {
+    return MapUtil.has(key, data) ? data[key] : defaultValue;
   }
 
 
   static int getInt(String key, Map<String, dynamic> data, { int defaultValue = 0 }) {
-    if (data.containsKey(key)) {
-      return int.parse(data[key]);
-    }
-    return defaultValue;
+    return MapUtil.has(key, data) ? int.parse(data[key]) : defaultValue;
   }
 
 
   static int? tryGetInt(String key, Map<String, dynamic> data) {
-    if (data.containsKey(key)) {
-      return int.tryParse(data[key]);
-    }
-    return null;
+    return MapUtil.has(key, data) ? int.tryParse(data[key]) : null;
   }
 
 
   static List<Map<String, dynamic>> getList(String key, Map<String, dynamic> data) {
-    if (data.containsKey(key)) return List<Map<String, dynamic>>.from(data[key]);
-    return [];
+    return MapUtil.has(key, data) ? List<Map<String, dynamic>>.from(data[key]) : [];
   }
 
 
