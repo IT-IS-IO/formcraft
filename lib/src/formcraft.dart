@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/managers/StateManager.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/utils/classes/implements/ValueUtil.dart';
 
 class FormCraft extends StatefulWidget {
 

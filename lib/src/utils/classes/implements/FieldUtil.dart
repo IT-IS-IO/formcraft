@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart' show FieldItem;
 import 'package:formcraft/src/models/select_field_option.dart';
-import 'package:formcraft/src/utils/classes/MapUtil.dart';
+import 'package:formcraft/src/utils/classes/implements/MapUtil.dart';
 
 class FieldUtil {
 

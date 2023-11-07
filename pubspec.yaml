@@ -18,7 +18,6 @@ dependencies:
   http:
   expandable_page_view: ^1.0.17
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
