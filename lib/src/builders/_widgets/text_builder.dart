@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_styles/_fc_text_style.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 class TextBuilder {
 

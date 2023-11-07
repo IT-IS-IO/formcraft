@@ -1,8 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/addons/other/pager/core/controllers/navigator_controller.dart';
-import 'package:formcraft/src/addons/other/pager/core/controllers/pager_controller.dart';
+import 'package:formcraft/src/components/pager/core/controllers/navigator_controller.dart';
+import 'package:formcraft/src/components/pager/core/controllers/pager_controller.dart';
 import 'package:provider/provider.dart';
 
 

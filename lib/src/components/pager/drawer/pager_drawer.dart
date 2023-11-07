@@ -21,14 +21,11 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/addons/other/pager/core/configs/pager_config.dart';
-import 'package:formcraft/src/addons/other/pager/core/controllers/pager_controller.dart';
-import 'package:formcraft/src/addons/other/pager/drawer/pager.dart';
-import 'package:formcraft/src/addons/other/pager/drawer/pager_navigation_drawer.dart';
+import 'package:formcraft/src/components/pager/core/configs/pager_config.dart';
+import 'package:formcraft/src/components/pager/core/controllers/pager_controller.dart';
+import 'package:formcraft/src/components/pager/drawer/pager.dart';
 import 'package:provider/provider.dart';
 export 'package:expandable_page_view/expandable_page_view.dart';
-export 'package:formcraft/src/addons/other/pager/core/configs/pager_config.dart';
-export 'package:formcraft/src/addons/other/pager/core/controllers/pager_controller.dart';
 
 class PagerDrawer extends StatefulWidget {
 

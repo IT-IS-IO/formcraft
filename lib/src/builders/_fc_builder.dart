@@ -6,7 +6,7 @@ import 'package:formcraft/src/builders/_widgets/custom_widget_builder.dart';
 import 'package:formcraft/src/builders/_widgets/flex_builder.dart';
 import 'package:formcraft/src/builders/_widgets/grid_builder.dart';
 import 'package:formcraft/src/builders/_widgets/text_builder.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 
 class FormCraftBuilder {

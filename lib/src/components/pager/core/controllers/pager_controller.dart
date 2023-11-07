@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/addons/other/pager/core/controllers/navigator_controller.dart';
-import 'package:formcraft/src/addons/other/pager/core/controllers/panel_controller.dart';
-import 'package:formcraft/src/addons/other/pager/core/utils/pager_utils.dart';
-import 'package:formcraft/src/utils/typedefs/fc_typedefs.dart';
+import 'package:formcraft/src/components/pager/core/controllers/navigator_controller.dart';
+import 'package:formcraft/src/components/pager/core/controllers/panel_controller.dart';
+import 'package:formcraft/src/components/pager/core/utils/pager_utils.dart';
+import 'package:formcraft/src/other/typedefs/fc_typedefs.dart';
 
 
 class PagerController extends ChangeNotifier {

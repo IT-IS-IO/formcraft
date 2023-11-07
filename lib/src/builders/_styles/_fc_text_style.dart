@@ -1,10 +1,6 @@
 
 
-
-
-
 import 'package:flutter/material.dart' show FontWeight, TextStyle;
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 
 class TextStyleBuilder {
 
@@ -14,28 +10,28 @@ class TextStyleBuilder {
 
     if (data.isEmpty) return const TextStyle();
     return const TextStyle();
-    return TextStyle(
-      color: ValueUtil.getColor('color', data),
-      fontSize: ValueUtil.getDouble('fontSize', data),
-      fontWeight: _getFontWeight(data['weight']),
-      fontStyle: data['fontStyle'],
-      letterSpacing: data['letterSpacing'],
-      wordSpacing: data['wordSpacing'],
-      height: data['height'],
-      locale: data['locale'],
-      foreground: data['foreground'],
-      background: data['background'],
-      shadows: data['shadows'],
-      fontFeatures: data['fontFeatures'],
-      decoration: data['decoration'],
-      decorationColor: data['decorationColor'],
-      decorationStyle: data['decorationStyle'],
-      decorationThickness: data['decorationThickness'],
-      debugLabel: data['debugLabel'],
-      fontFamily: data['fontFamily'],
-      fontFamilyFallback: data['fontFamilyFallback'],
-      package: data['package'],
-    );
+    // return TextStyle(
+    //   color: ValueUtil.getColor('color', data),
+    //   fontSize: ValueUtil.getDouble('fontSize', data),
+    //   fontWeight: _getFontWeight(data['weight']),
+    //   fontStyle: data['fontStyle'],
+    //   letterSpacing: data['letterSpacing'],
+    //   wordSpacing: data['wordSpacing'],
+    //   height: data['height'],
+    //   locale: data['locale'],
+    //   foreground: data['foreground'],
+    //   background: data['background'],
+    //   shadows: data['shadows'],
+    //   fontFeatures: data['fontFeatures'],
+    //   decoration: data['decoration'],
+    //   decorationColor: data['decorationColor'],
+    //   decorationStyle: data['decorationStyle'],
+    //   decorationThickness: data['decorationThickness'],
+    //   debugLabel: data['debugLabel'],
+    //   fontFamily: data['fontFamily'],
+    //   fontFamilyFallback: data['fontFamilyFallback'],
+    //   package: data['package'],
+    // );
   }
 
   static FontWeight _getFontWeight(String weight) {

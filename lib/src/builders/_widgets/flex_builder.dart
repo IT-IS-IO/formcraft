@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
 import 'package:formcraft/src/builders/_styles/_fc_alignment.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 
 

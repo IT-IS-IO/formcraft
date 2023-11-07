@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:formcraft/src/builders/_events/action_builder.dart';
 import 'package:formcraft/src/builders/_widgets/text_builder.dart';
-import 'package:formcraft/src/utils/classes/FieldUtil.dart';
-import 'package:formcraft/src/utils/classes/MapUtil.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
 import 'package:formcraft/src/managers/StateManager.dart';
+import 'package:formcraft/src/utils/field_util.dart';
+import 'package:formcraft/src/utils/map_util.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 
 class FieldBuilder {

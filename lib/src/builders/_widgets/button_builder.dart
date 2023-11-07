@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_events/function_builder.dart';
 import 'package:formcraft/src/builders/_widgets/text_builder.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
-import 'package:formcraft/src/utils/methods/methods.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 
 enum EventType {
@@ -67,7 +66,7 @@ class ButtonBuilder {
 
   static Function()? _getEvent({ required Map<String, dynamic> data, EventType? type }) {
 
-    if (ValueUtil.has("event", data) && (isNull(type) || type == EventType.event))  {
+    if (ValueUtil.has("event", data) && (type == null || type == EventType.event))  {
       return FunctionBuilder.build(data: data["event"]);
     }
 

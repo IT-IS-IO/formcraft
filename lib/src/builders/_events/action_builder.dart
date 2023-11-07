@@ -1,6 +1,6 @@
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 class ActionBuilder {
 

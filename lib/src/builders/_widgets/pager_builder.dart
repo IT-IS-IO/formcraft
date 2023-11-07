@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/addons/other/pager/drawer/pager_drawer.dart';
-import 'package:formcraft/src/addons/other/pager/drawer/pager_navigation_drawer.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/components/pager/core/controllers/pager_controller.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 import 'package:provider/provider.dart';
+import '../../components/pager/drawer/pager_drawer.dart';
+import '../../components/pager/drawer/pager_navigation_drawer.dart';
 
 
 

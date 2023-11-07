@@ -4,7 +4,8 @@ import 'package:form_bloc/form_bloc.dart';
 import 'package:formcraft/src/managers/ActionManager.dart';
 import 'package:formcraft/src/managers/FieldManager.dart';
 import 'package:formcraft/src/managers/FormManager.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/utils/value_util.dart';
+
 
 class StateManager {
 

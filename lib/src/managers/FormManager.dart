@@ -1,8 +1,6 @@
 
 import 'package:form_bloc/form_bloc.dart';
 import 'package:formcraft/src/managers/abstract_manager.dart';
-import 'package:formcraft/src/utils/methods/methods.dart';
-
 
 
 class FormManager extends Manager {
@@ -10,7 +8,7 @@ class FormManager extends Manager {
 
   bool addFieldBloc<T>({ required String key, required SingleFieldBloc field, int? step }) {
 
-    if (!isNull(step)) data[key]!.addFieldBloc(step: step!, fieldBloc: field);
+    if (step != null) data[key]!.addFieldBloc(step: step, fieldBloc: field);
     else data[key]!.addFieldBloc(fieldBloc: field);
 
     return true;
