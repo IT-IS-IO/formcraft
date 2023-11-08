@@ -1,5 +1,8 @@
 
+import 'package:formcraft/src/components/components.dart';
 import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/utils/logger_util.dart';
+import 'package:formcraft/src/utils/string_util.dart';
 import 'FormManager.dart';
 
 
@@ -9,13 +12,16 @@ abstract class Manager {
 
   final FormBlocBuilder form = FormBlocBuilder();
 
-  final Widget tree = Container();
+  Component? root;
 
   Component get(String key) => data[key]!;
 
   Future<Widget?> init(BuildContext context, Map<String, dynamic> data);
 
-  Component createComponent(Map<String, dynamic> data);
+  Component? createComponent(Map<String, dynamic> data);
+
+  void createComponentTree(Map<String, dynamic> data);
+
 
 }
 
@@ -23,45 +29,82 @@ abstract class Manager {
 class StateManager extends Manager {
 
 
-
   @override
   Future<Widget?> init(BuildContext context, Map<String, dynamic> data) async {
 
-    final rootComponent = createComponent(data);
+    if (data.isEmpty) return null;
 
-    return rootComponent.widget;
+    await createComponentTree(data);
+
+    Logger.info("Root: ${root?.widget}");
+
+    return root?.widget;
+
+  }
+
+
+
+
+  @override
+  Component? createComponent(Map<String, dynamic> data) {
+
+    final String type = StringUtil.capitalize("${data['component']}Component");
+
+    return components[type]?..render(data: data);
 
   }
 
 
 
   @override
-  Component createComponent(Map<String, dynamic> data) {
+  Future<void> createComponentTree(Map<String, dynamic> data, { Component? parent }) async {
 
-    final String type = data['type'] as String;
+    final String type = StringUtil.capitalize("${data['component']}Component");
 
-    return switch(type) {
-      "grid" => createGrid(data),
-      "text" => createText(data),
-      _ => throw Exception("Unknown component type $type")
-    };
+    Logger.info("Component: $type");
 
-    if (type == 'grid') {
-      final grid = GridComponent();
-      final children = data['children'] as List<dynamic>;
-      for (final child in children) {
-        final childComponent = createComponent(child);
-        grid.addChild(childComponent);
+    final Component? component = components[type];
+
+    if (component != null) {
+
+      if (root == null) {
+
+        root = component;
+
+        if (data['children'] != null) {
+          for (final childData in List.of(data['children'])) {
+            createComponentTree(childData, parent: root);
+          }
+        }
+        else if (data['child'] != null) {
+          createComponentTree(data['child'], parent: root);
+        }
+
       }
-      return grid;
-    } else if (type == 'text') {
-      return TextComponent();
+      else {
+
+        if (parent != null) parent.addChild(component);
+        else Logger.error("Parent is null.");
+
+        if (data['children'] != null) {
+          final List<dynamic> childrenData = data['children'];
+          for (final childData in childrenData) {
+            createComponentTree(childData, parent: component);
+          }
+        }
+        else if (data['child'] != null) {
+          createComponentTree(data['child'], parent: component);
+        }
+
+      }
     }
 
-    // Add handling for other component types as needed.
 
-    throw Exception('Unsupported component type: $type');
   }
+
+
+
+
 
 
 }

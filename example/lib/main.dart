@@ -65,18 +65,18 @@ class _MyAppState extends State<MyApp> {
                     "component": "container",
                     "child": {
                       "type": "grid",
-                      "widget": "column",
+                      "component": "column",
                       "mainAxisAlignment": "center",
                       "crossAxisAlignment": "center",
                       "children": [
-                        {
-                          "type": "text",
-                          "component": "text",
-                          "data": "Hey! It's warioddly",
-                        },
+                        // {
+                        //   "type": "text",
+                        //   "component": "text",
+                        //   "data": "Hey! It's warioddly",
+                        // },
                         {
                           "type": "field",
-                          "component": "input",
+                          "component": "textField",
                           "form": "FormCraft",
                           "name": "FormCraftInput",
                           "actions": "action-test",
@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                         },
                         {
                           "type": "field",
-                          "component": "radioGroup",
+                          "component": "groupRadio",
                           "form": "FormCraft",
                           "name": "FormCraftRadioGroup",
                           "items": [
@@ -109,13 +109,13 @@ class _MyAppState extends State<MyApp> {
                           "name": "FormCraftCheckbox",
                           "body": {
                             "type": "text",
-                            "widget": "text",
+                            "component": "text",
                             "data": "Hey! It's warioddly",
                           },
                         },
                         {
                           "type": "field",
-                          "component": "checkboxGroup",
+                          "component": "groupCheckbox",
                           "form": "FormCraft",
                           "name": "FormCraftCheckboxGroup",
                           "items": [
@@ -135,7 +135,7 @@ class _MyAppState extends State<MyApp> {
                         },
                         {
                           "type": "field",
-                          "component": "input",
+                          "component": "textField",
                           "form": "FormCraft",
                           "name": "FormCraftInput765",
                           "initialValue": "Hello 124124124124124!",

@@ -17,7 +17,7 @@ class TextButtonComponent extends Component {
 
     widget = TextButton(
       key: uuid,
-      child: child ?? const SizedBox(),
+      child: child?.widget ?? const SizedBox(),
       onPressed: () {},
     );
 
@@ -25,10 +25,6 @@ class TextButtonComponent extends Component {
 
   }
 
-
-  void addChild(Widget child) {
-    this.child = child;
-  }
 
 
 }

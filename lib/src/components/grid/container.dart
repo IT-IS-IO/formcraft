@@ -1,5 +1,4 @@
 
-import 'package:formcraft/src/utils/value_util.dart';
 import '../interface.dart';
 
 
@@ -17,18 +16,15 @@ class ContainerComponent extends Component {
 
     uuid = buildUniqueKey(data);
 
+    attributes.addAll(data);
+
     widget = Container(
       key: uuid,
-      child: child ?? const SizedBox(),
+      child: child?.widget ?? const SizedBox(),
     );
 
     return widget;
 
-  }
-
-
-  void addChild(Widget child) {
-    this.child = child;
   }
 
 

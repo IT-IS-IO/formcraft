@@ -9,26 +9,37 @@ abstract class Component<T> {
   Key uuid = const Key("Component");
 
   Map<String, dynamic> attributes = { };
-  List<Widget> children = [];
+  List<Component> children = [];
 
-  Widget? child;
+  Component? child;
   Widget? widget;
 
 
   String get type;
 
 
+  List<Widget> get childrenWidgets {
+    return children.map((child) => child.widget ?? const SizedBox()).toList();
+  }
+
+
   Widget? render({ required Map<String, dynamic> data });
 
 
-  void rebuildChild(Widget child) {
+  void rebuildChild(Component child) {
     this.child = child;
   }
 
 
-
   Key buildUniqueKey(Map<String, dynamic> data) {
-    return Key(ValueUtil.getAsString("uuid", data, defaultValue: type));
+    return Key(ValueUtil.getAsString("uuid", data, defaultValue: UniqueKey().toString()));
+  }
+
+
+  void addChild(Component? child) {
+    if (child == null) return;
+    if (child.type == "RowComponent" || child.type == "ColumnComponent") children.add(child);
+    else this.child = child;
   }
 
 

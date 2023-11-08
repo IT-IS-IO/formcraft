@@ -17,12 +17,14 @@ class CheckboxComponent extends FieldComponent {
 
     uuid = buildUniqueKey(data);
 
+    attributes.addAll(data);
+
     fieldBloc = BooleanFieldBloc();
 
     widget = CheckboxFieldBlocBuilder(
       key: uuid,
       booleanFieldBloc: fieldBloc as BooleanFieldBloc,
-      body: child ?? const SizedBox(),
+      body: child?.widget ?? const SizedBox(),
     );
 
     return widget;

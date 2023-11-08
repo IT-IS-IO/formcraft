@@ -4,6 +4,7 @@ import 'package:formcraft/src/components/button/text.dart';
 import 'package:formcraft/src/components/fields/checkbox.dart';
 import 'package:formcraft/src/components/fields/group_checkbox.dart';
 import 'package:formcraft/src/components/fields/group_radio.dart';
+import 'package:formcraft/src/components/fields/text.dart';
 import 'package:formcraft/src/components/grid/column.dart';
 import 'package:formcraft/src/components/grid/container.dart';
 import 'package:formcraft/src/components/grid/row.dart';
@@ -25,5 +26,7 @@ final Map<String, Component> components = {
   GroupCheckboxComponent().type: GroupCheckboxComponent(),
   GroupRadioComponent().type: GroupRadioComponent(),
   CheckboxComponent().type: CheckboxComponent(),
+  TextFieldComponent().type: TextFieldComponent(),
+  // "NullComponent": throw Exception("NullComponent is not a valid component."),
 };
 

@@ -18,7 +18,7 @@ class IconButtonComponent extends Component {
 
     widget = IconButton(
       key: uuid,
-      icon: child ?? const SizedBox(),
+      icon: child?.widget ?? const SizedBox(),
       onPressed: () {},
     );
 

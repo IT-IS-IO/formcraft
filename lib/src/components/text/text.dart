@@ -1,5 +1,4 @@
 
-import 'package:formcraft/src/utils/value_util.dart';
 import '../interface.dart';
 
 class TextComponent extends Component {
@@ -30,6 +29,9 @@ class TextComponent extends Component {
     attributes["data"] = text;
   }
 
-
+  @override
+  void addChild(Component? child) {
+    throw "$type cannot have children.";
+  }
 
 }

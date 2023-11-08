@@ -18,21 +18,18 @@ class RowComponent extends Component {
 
     uuid = buildUniqueKey(data);
 
+    attributes.addAll(data);
+
     widget = Row(
       key: uuid,
       mainAxisSize: AlignBuilder.mainAxisSize(ValueUtil.getAsString("mainAxisSize", data)),
       mainAxisAlignment: AlignBuilder.mainAxisAlignment(ValueUtil.getAsString("mainAxisAlignment", data)),
       crossAxisAlignment: AlignBuilder.crossAxisAlignment(ValueUtil.getAsString("crossAxisAlignment", data)),
-      children: children,
+      children: childrenWidgets,
     );
 
     return widget;
 
-  }
-
-
-  void addChild(Widget child) {
-    children.add(child);
   }
 
 
