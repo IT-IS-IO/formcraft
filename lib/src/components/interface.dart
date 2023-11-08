@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:formcraft/src/utils/value_util.dart';
 export 'package:flutter/material.dart';
 
-abstract class Component<T> {
+abstract class Component {
 
-  Key uuid = const Key("Component");
+  Component({ Key? uuid }) : uuid = uuid ?? UniqueKey();
+
+  Key uuid = UniqueKey();
 
   Map<String, dynamic> attributes = { };
-  List<Component> children = [];
+  dynamic child;
 
-  Component? child;
   Widget? widget;
 
 
@@ -19,15 +20,21 @@ abstract class Component<T> {
 
 
   List<Widget> get childrenWidgets {
-    return children.map((child) => child.widget ?? const SizedBox()).toList();
+    if (child == null) return [];
+    return (child as List<Component>).map((child) => child.widget ?? const SizedBox()).toList();
   }
 
 
-  Widget? render({ required Map<String, dynamic> data });
+  Widget? render({ required Map<String, dynamic> data }) {
+    attributes.addAll(data);
+    return null;
+  }
 
 
-  void rebuildChild(Component child) {
-    this.child = child;
+  void rebuild() {
+
+    // widget = render(data: attributes);
+
   }
 
 
@@ -36,10 +43,16 @@ abstract class Component<T> {
   }
 
 
-  void addChild(Component? child) {
-    if (child == null) return;
-    if (child.type == "RowComponent" || child.type == "ColumnComponent") children.add(child);
-    else this.child = child;
+  void addChild(Component? _child) {
+    print("Component $_child");
+
+    if (_child == null) return;
+    if (type == "RowComponent" || type == "ColumnComponent") {
+      child == null ? child = [_child] : child.add(_child);
+    }
+    else child = _child;
+
+    print("child $child");
   }
 
 

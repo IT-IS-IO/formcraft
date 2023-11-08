@@ -6,6 +6,7 @@ import 'field_interface.dart';
 
 class GroupCheckboxComponent extends FieldComponent {
 
+  GroupCheckboxComponent() : super();
 
   @override
   String get type {
@@ -16,7 +17,7 @@ class GroupCheckboxComponent extends FieldComponent {
   @override
   Widget? render({ required Map<String, dynamic> data }) {
 
-    uuid = buildUniqueKey(data);
+    super.render(data: data);
 
     fieldBloc = MultiSelectFieldBloc();
 

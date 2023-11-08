@@ -22,9 +22,6 @@ class _FormCraftState extends State<FormCraft> {
   void initState() {
     super.initState();
 
-    // StateManager.hasInstance();
-    // StateManager.init(context, widget.data);
-
     init = Future.value(stateManager.init(context, ValueUtil.get("build", widget.data)));
 
   }

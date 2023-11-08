@@ -8,56 +8,40 @@ import 'FormManager.dart';
 
 abstract class Manager {
 
-  final Map<String, Component> data = { };
+  final Map<String, dynamic> data = { };
 
   final FormBlocBuilder form = FormBlocBuilder();
 
   Component? root;
 
-  Component get(String key) => data[key]!;
-
   Future<Widget?> init(BuildContext context, Map<String, dynamic> data);
 
-  Component? createComponent(Map<String, dynamic> data);
-
-  void createComponentTree(Map<String, dynamic> data);
-
+  void createComponentTree(Map<String, dynamic> data, {Component? parent});
 
 }
 
 
 class StateManager extends Manager {
 
-
   @override
   Future<Widget?> init(BuildContext context, Map<String, dynamic> data) async {
 
     if (data.isEmpty) return null;
 
-    await createComponentTree(data);
+    createComponentTree(data, parent: null);
 
-    Logger.info("Root: ${root?.widget}");
+    // rebuild(root!);
+
+    print(root?.child);
+
+    root?.rebuild();
 
     return root?.widget;
-
   }
 
 
-
-
   @override
-  Component? createComponent(Map<String, dynamic> data) {
-
-    final String type = StringUtil.capitalize("${data['component']}Component");
-
-    return components[type]?..render(data: data);
-
-  }
-
-
-
-  @override
-  Future<void> createComponentTree(Map<String, dynamic> data, { Component? parent }) async {
+  void createComponentTree( Map<String, dynamic> data, {Component? parent }) {
 
     final String type = StringUtil.capitalize("${data['component']}Component");
 
@@ -67,44 +51,53 @@ class StateManager extends Manager {
 
     if (component != null) {
 
-      if (root == null) {
-
-        root = component;
-
-        if (data['children'] != null) {
-          for (final childData in List.of(data['children'])) {
-            createComponentTree(childData, parent: root);
-          }
-        }
-        else if (data['child'] != null) {
-          createComponentTree(data['child'], parent: root);
-        }
-
+      if (parent != null) {
+        parent.addChild(component);
       }
       else {
-
-        if (parent != null) parent.addChild(component);
-        else Logger.error("Parent is null.");
-
-        if (data['children'] != null) {
-          final List<dynamic> childrenData = data['children'];
-          for (final childData in childrenData) {
-            createComponentTree(childData, parent: component);
-          }
-        }
-        else if (data['child'] != null) {
-          createComponentTree(data['child'], parent: component);
-        }
-
+        root = component;
       }
-    }
 
+      if (data.containsKey('children')) {
+        for (final childData in List.of(data['children'])) {
+          createComponentTree(childData, parent: component);
+        }
+      }
+      else if (data.containsKey('child')) {
+        createComponentTree(data['child'], parent: component);
+      }
+
+
+      super.data[component.uuid.toString()] = {
+        "uuid": component.uuid,
+        "type": component.type,
+        "parent": parent?.uuid,
+        "component": component,
+      };
+
+    }
 
   }
 
 
+  void rebuild(Component? component) {
 
+    if (component == null) return;
 
+    if (component.child is List) {
+      for (final child in component.child as List<Component>) {
+        rebuild(child);
+      }
+    }
+    else if (component.child is Component) {
+      print(component.child);
+      rebuild(component.child as Component);
+    }
+    else {
+      component.rebuild();
+    }
+
+  }
 
 
 }

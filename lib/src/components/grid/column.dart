@@ -6,6 +6,7 @@ import '../interface.dart';
 
 class ColumnComponent extends Component {
 
+  ColumnComponent() : super(uuid: UniqueKey());
 
   @override
   String get type {
@@ -16,9 +17,7 @@ class ColumnComponent extends Component {
   @override
   Widget? render({ required Map<String, dynamic> data }) {
 
-    uuid = buildUniqueKey(data);
-
-    attributes.addAll(data);
+    super.render(data: data);
 
     widget = Column(
       key: uuid,

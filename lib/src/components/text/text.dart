@@ -12,8 +12,7 @@ class TextComponent extends Component {
 
   @override
   Widget? render({ required Map<String, dynamic> data }) {
-
-    uuid = buildUniqueKey(data);
+    super.render(data: data);
 
     widget = Text(
       attributes["data"] ?? "",

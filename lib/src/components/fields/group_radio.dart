@@ -7,6 +7,7 @@ import 'field_interface.dart';
 
 class GroupRadioComponent extends FieldComponent {
 
+  GroupRadioComponent() : super();
 
   @override
   String get type {
@@ -17,7 +18,7 @@ class GroupRadioComponent extends FieldComponent {
   @override
   Widget? render({ required Map<String, dynamic> data }) {
 
-    uuid = buildUniqueKey(data);
+    super.render(data: data);
 
     fieldBloc = SelectFieldBloc();
 

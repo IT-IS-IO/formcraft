@@ -1,8 +1,9 @@
 
-import 'package:formcraft/src/utils/value_util.dart';
 import '../interface.dart';
 
 class TextButtonComponent extends Component {
+
+  TextButtonComponent() : super();
 
   @override
   String get type {
@@ -13,7 +14,7 @@ class TextButtonComponent extends Component {
   @override
   Widget? render({ required Map<String, dynamic> data }) {
 
-    uuid = Key(ValueUtil.getAsString("uuid", data, defaultValue: "TextButton"));
+    super.render(data: data);
 
     widget = TextButton(
       key: uuid,

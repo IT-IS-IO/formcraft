@@ -6,6 +6,7 @@ import '../interface.dart';
 
 class RowComponent extends Component {
 
+  RowComponent() : super();
 
   @override
   String get type {
@@ -16,9 +17,7 @@ class RowComponent extends Component {
   @override
   Widget? render({ required Map<String, dynamic> data }) {
 
-    uuid = buildUniqueKey(data);
-
-    attributes.addAll(data);
+    super.render(data: data);
 
     widget = Row(
       key: uuid,

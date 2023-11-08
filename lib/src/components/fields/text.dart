@@ -5,6 +5,7 @@ import 'field_interface.dart';
 
 class TextFieldComponent extends FieldComponent {
 
+  TextFieldComponent() : super();
 
   @override
   String get type {
@@ -15,7 +16,7 @@ class TextFieldComponent extends FieldComponent {
   @override
   Widget? render({ required Map<String, dynamic> data }) {
 
-    uuid = buildUniqueKey(data);
+    super.render(data: data);
 
     fieldBloc = TextFieldBloc();
     
