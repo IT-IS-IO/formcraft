@@ -1,21 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_events/function_builder.dart';
-import 'package:formcraft/src/builders/_widgets/text_builder.dart';
+import 'package:formcraft/src/builders/events/function_builder.dart';
+import 'package:formcraft/src/builders/widgets/text_builder.dart';
+import 'package:formcraft/src/other/enums/enums.dart';
 import 'package:formcraft/src/utils/value_util.dart';
-
-
-enum EventType {
-
-  double,
-
-  long,
-
-  hover,
-
-  event
-
-}
 
 
 class ButtonBuilder {

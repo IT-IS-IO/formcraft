@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_widgets/text_builder.dart';
-import 'package:formcraft/src/utils/methods/methods.dart';
-
+import 'package:formcraft/src/builders/widgets/text_builder.dart';
 
 class AppbarBuilder {
 
@@ -10,12 +8,12 @@ class AppbarBuilder {
 
   static PreferredSize? build({ required Map<String, dynamic>? data }) {
 
-    if (isNull(data)) return null;
+    if (data == null) return null;
 
     return PreferredSize(
       preferredSize: const Size.fromHeight(50.0),
       child: AppBar(
-        title: TextBuilder.build(data!["title"]),
+        title: TextBuilder.build(data["title"]),
       )
     );
 

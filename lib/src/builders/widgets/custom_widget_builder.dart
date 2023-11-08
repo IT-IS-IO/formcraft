@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/builders/_widgets/pager_builder.dart';
+import 'package:formcraft/src/builders/widgets/pager_builder.dart';
 import 'package:formcraft/src/utils/value_util.dart';
 
 

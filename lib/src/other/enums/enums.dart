@@ -16,3 +16,16 @@ enum LoggerType {
   json
 
 }
+
+
+enum EventType {
+
+  double,
+
+  long,
+
+  hover,
+
+  event
+
+}

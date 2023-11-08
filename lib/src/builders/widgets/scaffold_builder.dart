@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:formcraft/src/builders/_fc_builder.dart';
-import 'package:formcraft/src/builders/_widgets/appbar_builder.dart';
-import 'package:formcraft/src/utils/classes/ValueUtil.dart';
+import 'package:formcraft/src/builders/widgets/appbar_builder.dart';
+import 'package:formcraft/src/utils/value_util.dart';
 
 class ScaffoldBuilder {
 

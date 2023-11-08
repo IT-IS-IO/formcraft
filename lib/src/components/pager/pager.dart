@@ -20,6 +20,50 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-export './drawer/pager_drawer.dart';
-export './drawer/pager_navigation_drawer.dart';
-export './drawer/pager.dart';
+import 'package:provider/provider.dart';
+import '../interface.dart';
+import 'core/controllers/pager_controller.dart';
+import 'drawer/pager_drawer.dart';
+import 'drawer/pager_navigation_drawer.dart';
+
+// export './drawer/pager_drawer.dart';
+// export './drawer/pager_navigation_drawer.dart';
+// export './drawer/pager.dart';
+
+
+
+class PagerComponent extends Component {
+
+
+  @override
+  String get type => "PagerComponent";
+
+
+  @override
+  Widget? render({required Map<String, dynamic> data}) {
+
+    widget = ChangeNotifierProvider(
+      create: (_) => PagerController(),
+      child: Column(
+        children: [
+
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: PagerDrawer(
+                children: children,
+              ),
+            ),
+          ),
+
+          const PagerNavigationDrawer(),
+
+        ],
+      ),
+    );
+
+    return widget;
+  }
+
+
+}

@@ -57,209 +57,308 @@ class _MyAppState extends State<MyApp> {
                 }
               ],
               "build": {
-                "type": "custom",
-                "widget": "pager",
-                "debug": true,
+                "type": "grid",
+                "component": "column",
                 "children": [
                   {
-                    "title": "Page 1",
-                    "children": [
-                      {
-                        "type": "grid",
-                        "widget": "container",
-                        "child": {
-                          "type": "grid",
-                          "widget": "column",
-                          "mainAxisAlignment": "center",
-                          "crossAxisAlignment": "center",
-                          "children": [
+                    "type": "grid",
+                    "component": "container",
+                    "child": {
+                      "type": "grid",
+                      "widget": "column",
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "component": "text",
+                          "data": "Hey! It's warioddly",
+                        },
+                        {
+                          "type": "field",
+                          "component": "input",
+                          "form": "FormCraft",
+                          "name": "FormCraftInput",
+                          "actions": "action-test",
+                          "initialValue": "Hello World!",
+                        },
+                        {
+                          "type": "field",
+                          "component": "radioGroup",
+                          "form": "FormCraft",
+                          "name": "FormCraftRadioGroup",
+                          "items": [
                             {
-                              "type": "text",
-                              "widget": "text",
-                              "data": "Hey! It's warioddly",
+                              "value": "1",
+                              "label": "One"
                             },
                             {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInput",
-                              "actions": "action-test",
-                              "initialValue": "Hello World!",
+                              "value": "2",
+                              "label": "Two"
                             },
                             {
-                              "type": "form",
-                              "widget": "radioGroup",
-                              "form": "FormCraft",
-                              "name": "FormCraftRadioGroup",
-                              "items": [
-                                {
-                                  "value": "1",
-                                  "label": "One"
-                                },
-                                {
-                                  "value": "2",
-                                  "label": "Two"
-                                },
-                                {
-                                  "value": "3",
-                                  "label": "Three"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "form",
-                              "widget": "checkbox",
-                              "form": "FormCraft",
-                              "name": "FormCraftCheckbox",
-                              "body": {
-                                "type": "text",
-                                "widget": "text",
-                                "data": "Hey! It's warioddly",
-                              },
-                            },
-                            {
-                              "type": "form",
-                              "widget": "checkboxGroup",
-                              "form": "FormCraft",
-                              "name": "FormCraftCheckboxGroup",
-                              "items": [
-                                {
-                                  "value": "1",
-                                  "label": "One"
-                                },
-                                {
-                                  "value": "2",
-                                  "label": "Two"
-                                },
-                                {
-                                  "value": "3",
-                                  "label": "Three"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInput765",
-                              "initialValue": "Hello 124124124124124!",
-                            },
-                            {
-                              "type": "button",
-                              "widget": "text",
-                              "text": {
-                                "type": "text",
-                                "widget": "text",
-                                "data": "Hey! It's warioddly",
-                              },
-                              "event": {
-                                "event": "debug",
-                              }
+                              "value": "3",
+                              "label": "Three"
                             }
                           ]
                         },
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Page 2",
-                    "children": [
-                      {
-                        "type": "grid",
-                        "widget": "container",
-                        "child": {
-                          "type": "grid",
-                          "widget": "column",
-                          "children": [
-                            {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInput",
-                            },
-                          ]
+                        {
+                          "type": "field",
+                          "component": "checkbox",
+                          "form": "FormCraft",
+                          "name": "FormCraftCheckbox",
+                          "body": {
+                            "type": "text",
+                            "widget": "text",
+                            "data": "Hey! It's warioddly",
+                          },
                         },
-                      },
-                      {
-                        "type": "grid",
-                        "widget": "container",
-                        "child": {
-                          "type": "grid",
-                          "widget": "column",
-                          "children": [
+                        {
+                          "type": "field",
+                          "component": "checkboxGroup",
+                          "form": "FormCraft",
+                          "name": "FormCraftCheckboxGroup",
+                          "items": [
                             {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInpu1222",
-                              "initialValue": "Hello World!",
+                              "value": "1",
+                              "label": "One"
                             },
                             {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInpu1121231",
-                              "initialValue": ""
+                              "value": "2",
+                              "label": "Two"
+                            },
+                            {
+                              "value": "3",
+                              "label": "Three"
                             }
                           ]
                         },
-                      },
-                      {
-                        "type": "grid",
-                        "widget": "container",
-                        "child": {
-                          "type": "grid",
-                          "widget": "column",
-                          "children": [
-                            {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInpu1124124",
-                              "initialValue": "Hello World!",
-                            },
-                            {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInpu1124124",
-                              "initialValue": ""
-                            }
-                          ]
+                        {
+                          "type": "field",
+                          "component": "input",
+                          "form": "FormCraft",
+                          "name": "FormCraftInput765",
+                          "initialValue": "Hello 124124124124124!",
                         },
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Page 3",
-                    "children": [
-                      {
-                        "type": "grid",
-                        "widget": "container",
-                        "child": {
-                          "type": "grid",
-                          "widget": "column",
-                          "children": [
-                            {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInpu11212124124",
-                              "initialValue": "Hello World!",
-                            },
-                            {
-                              "type": "form",
-                              "widget": "input",
-                              "form": "FormCraft",
-                              "name": "FormCraftInpu1124124",
-                              "initialValue": ""
-                            }
-                          ]
-                        },
-                      }
-                    ],
+                        {
+                          "type": "button",
+                          "component": "text",
+                          "text": {
+                            "type": "text",
+                            "widget": "text",
+                            "data": "Hey! It's warioddly",
+                          },
+                          "event": {
+                            "event": "debug",
+                          }
+                        }
+                      ]
+                    },
                   }
                 ]
+                // "type": "custom",
+                // "widget": "pager",
+                // "debug": true,
+                // "children": [
+                //   {
+                //     "title": "Page 1",
+                //     "children": [
+                //       {
+                //         "type": "grid",
+                //         "widget": "container",
+                //         "child": {
+                //           "type": "grid",
+                //           "widget": "column",
+                //           "mainAxisAlignment": "center",
+                //           "crossAxisAlignment": "center",
+                //           "children": [
+                //             {
+                //               "type": "text",
+                //               "widget": "text",
+                //               "data": "Hey! It's warioddly",
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInput",
+                //               "actions": "action-test",
+                //               "initialValue": "Hello World!",
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "radioGroup",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftRadioGroup",
+                //               "items": [
+                //                 {
+                //                   "value": "1",
+                //                   "label": "One"
+                //                 },
+                //                 {
+                //                   "value": "2",
+                //                   "label": "Two"
+                //                 },
+                //                 {
+                //                   "value": "3",
+                //                   "label": "Three"
+                //                 }
+                //               ]
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "checkbox",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftCheckbox",
+                //               "body": {
+                //                 "type": "text",
+                //                 "widget": "text",
+                //                 "data": "Hey! It's warioddly",
+                //               },
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "checkboxGroup",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftCheckboxGroup",
+                //               "items": [
+                //                 {
+                //                   "value": "1",
+                //                   "label": "One"
+                //                 },
+                //                 {
+                //                   "value": "2",
+                //                   "label": "Two"
+                //                 },
+                //                 {
+                //                   "value": "3",
+                //                   "label": "Three"
+                //                 }
+                //               ]
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInput765",
+                //               "initialValue": "Hello 124124124124124!",
+                //             },
+                //             {
+                //               "type": "button",
+                //               "widget": "text",
+                //               "text": {
+                //                 "type": "text",
+                //                 "widget": "text",
+                //                 "data": "Hey! It's warioddly",
+                //               },
+                //               "event": {
+                //                 "event": "debug",
+                //               }
+                //             }
+                //           ]
+                //         },
+                //       }
+                //     ]
+                //   },
+                //   {
+                //     "title": "Page 2",
+                //     "children": [
+                //       {
+                //         "type": "grid",
+                //         "widget": "container",
+                //         "child": {
+                //           "type": "grid",
+                //           "widget": "column",
+                //           "children": [
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInput",
+                //             },
+                //           ]
+                //         },
+                //       },
+                //       {
+                //         "type": "grid",
+                //         "widget": "container",
+                //         "child": {
+                //           "type": "grid",
+                //           "widget": "column",
+                //           "children": [
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInpu1222",
+                //               "initialValue": "Hello World!",
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInpu1121231",
+                //               "initialValue": ""
+                //             }
+                //           ]
+                //         },
+                //       },
+                //       {
+                //         "type": "grid",
+                //         "widget": "container",
+                //         "child": {
+                //           "type": "grid",
+                //           "widget": "column",
+                //           "children": [
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInpu1124124",
+                //               "initialValue": "Hello World!",
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInpu1124124",
+                //               "initialValue": ""
+                //             }
+                //           ]
+                //         },
+                //       }
+                //     ]
+                //   },
+                //   {
+                //     "title": "Page 3",
+                //     "children": [
+                //       {
+                //         "type": "grid",
+                //         "widget": "container",
+                //         "child": {
+                //           "type": "grid",
+                //           "widget": "column",
+                //           "children": [
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInpu11212124124",
+                //               "initialValue": "Hello World!",
+                //             },
+                //             {
+                //               "type": "form",
+                //               "widget": "input",
+                //               "form": "FormCraft",
+                //               "name": "FormCraftInpu1124124",
+                //               "initialValue": ""
+                //             }
+                //           ]
+                //         },
+                //       }
+                //     ],
+                //   }
+                // ]
               }
             }
         ),

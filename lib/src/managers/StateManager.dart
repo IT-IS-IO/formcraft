@@ -1,73 +1,68 @@
 
-import 'package:flutter/cupertino.dart';
-import 'package:form_bloc/form_bloc.dart';
-import 'package:formcraft/src/managers/ActionManager.dart';
-import 'package:formcraft/src/managers/FieldManager.dart';
-import 'package:formcraft/src/managers/FormManager.dart';
-import 'package:formcraft/src/utils/value_util.dart';
+import 'package:formcraft/src/components/interface.dart';
+import 'FormManager.dart';
 
 
-class StateManager {
+abstract class Manager {
 
-  StateManager._();
+  final Map<String, Component> data = { };
 
-  static BuildContext? context;
-  static String? uid;
-  static Map<String, dynamic> data = {};
+  final FormBlocBuilder form = FormBlocBuilder();
 
-  static final FormManager _form = FormManager();
-  static final FieldManager _field = FieldManager();
-  static final ActionManager action = ActionManager();
+  final Widget tree = Container();
+
+  Component get(String key) => data[key]!;
+
+  Future<Widget?> init(BuildContext context, Map<String, dynamic> data);
+
+  Component createComponent(Map<String, dynamic> data);
+
+}
 
 
-  static void addFormBloc({ required String key }) => _form.set<FormBloc>(key, FormBlocBuilder());
+class StateManager extends Manager {
 
-  static void addFieldBloc({ required String key, required String formKey, required SingleFieldBloc field, int? step }) {
 
-    if (!_form.has(formKey)) addFormBloc(key: formKey);
 
-    _form.addFieldBloc<SingleFieldBloc>(key: formKey, field: field, step: step);
+  @override
+  Future<Widget?> init(BuildContext context, Map<String, dynamic> data) async {
 
-    _field.set(key, field);
+    final rootComponent = createComponent(data);
+
+    return rootComponent.widget;
 
   }
 
 
-  static bool hasForm(String key) => _form.has(key);
 
-  static bool hasFieldBloc(String key) => _field.has(key);
+  @override
+  Component createComponent(Map<String, dynamic> data) {
 
-  static bool hasAction(String key) => action.has(key);
+    final String type = data['type'] as String;
 
-  
-  static FormBloc getFormBloc(String key) => _form.get(key);
+    return switch(type) {
+      "grid" => createGrid(data),
+      "text" => createText(data),
+      _ => throw Exception("Unknown component type $type")
+    };
 
-  static SingleFieldBloc getFieldBloc(String key) => _field.get(key);
-
-  static Map<String, dynamic> getAction(String key) => action.get(key);
-
-  static Map<String, dynamic> getActions(Map<String, dynamic> data) => action.getActions(data);
-
-
-  static void init(BuildContext context, Map<String, dynamic> data) {
-    StateManager.data = data;
-    StateManager.context = context;
-    StateManager.uid = ValueUtil.getAsString("name", data, defaultValue: "FormCraft");
-    StateManager.action.setAll(ValueUtil.getList("actions", data));
-  }
-
-  static void hasInstance() {
-    if (context != null) {
-      throw Exception("[$uid] StateManager has already other instance");
+    if (type == 'grid') {
+      final grid = GridComponent();
+      final children = data['children'] as List<dynamic>;
+      for (final child in children) {
+        final childComponent = createComponent(child);
+        grid.addChild(childComponent);
+      }
+      return grid;
+    } else if (type == 'text') {
+      return TextComponent();
     }
+
+    // Add handling for other component types as needed.
+
+    throw Exception('Unsupported component type: $type');
   }
 
-  static void dispose() {
-    _form.clear();
-    _field.clear();
-    context = null;
-    uid = null;
-  }
 
 }
 
