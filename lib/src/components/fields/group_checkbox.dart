@@ -1,12 +1,18 @@
 
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'package:formcraft/src/utils/field_util.dart';
-import 'field_interface.dart';
+import 'package:formcraft/src/utils/field.dart';
+import '../field_interface.dart';
 
 class GroupCheckboxComponent extends FieldComponent {
 
-  GroupCheckboxComponent() : super();
+  GroupCheckboxComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -15,21 +21,33 @@ class GroupCheckboxComponent extends FieldComponent {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
 
     super.render(data: data);
 
-    fieldBloc = MultiSelectFieldBloc();
-
-    widget = CheckboxGroupFieldBlocBuilder(
-      key: uuid,
-      multiSelectFieldBloc: fieldBloc as MultiSelectFieldBloc,
-      itemBuilder: FieldUtil.itemBuilder,
-    );
+    widget = componentWidget;
 
     return widget;
 
   }
+
+
+  @override
+  Widget get componentWidget {
+
+    fieldBloc = MultiSelectFieldBloc(
+      items: FieldUtil.buildOptions(attributes),
+    );
+
+    return CheckboxGroupFieldBlocBuilder(
+      key: uuid,
+      multiSelectFieldBloc: fieldBloc as MultiSelectFieldBloc,
+      itemBuilder: FieldUtil.itemBuilder,
+      canTapItemTile: true,
+    );
+
+  }
+
 
 
 }

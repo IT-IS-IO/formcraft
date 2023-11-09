@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/managers/StateManager.dart';
-import 'package:formcraft/src/utils/value_util.dart';
+import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/utils/value.dart';
+import 'managers/state/manager.dart';
 
 class FormCraft extends StatefulWidget {
 
@@ -31,12 +32,28 @@ class _FormCraftState extends State<FormCraft> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-        body: FutureBuilder(
+        appBar: AppBar(
+          title: const Text('FormCraft'),
+          actions: [
+
+            // rebuild
+            IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: () {
+                stateManager.hide(setState);
+              },
+            ),
+
+          ],
+        ),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: FutureBuilder(
             future: init,
             builder: (_, AsyncSnapshot<Widget?> snapshot) {
 
               if (snapshot.hasData) {
-                return snapshot.data ?? const Text("Hello FormCraft! (Has no data)");
+                return snapshot.data!;
               }
 
               if (snapshot.hasError) {
@@ -47,6 +64,7 @@ class _FormCraftState extends State<FormCraft> {
               return const CircularProgressIndicator();
 
             }
+          ),
         ),
       ),
     );

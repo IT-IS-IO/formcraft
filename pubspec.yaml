@@ -13,7 +13,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  collection: ^1.17.2
+  collection:
   form_bloc: ^0.31.0
   flutter_form_bloc: ^0.31.0
   expandable_page_view: ^1.0.17

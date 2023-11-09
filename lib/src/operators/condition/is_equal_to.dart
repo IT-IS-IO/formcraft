@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 import 'package:collection/collection.dart';
-import 'package:formcraft/src/utils/logger_util.dart';
+import 'package:formcraft/src/utils/logger.dart';
 import 'condition_operators_interface.dart';
 
 

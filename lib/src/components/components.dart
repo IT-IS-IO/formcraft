@@ -11,22 +11,44 @@ import 'package:formcraft/src/components/grid/row.dart';
 import 'package:formcraft/src/components/interface.dart';
 import 'package:formcraft/src/components/text/rich.dart';
 import 'package:formcraft/src/components/text/text.dart';
+import 'package:formcraft/src/utils/string.dart';
+
+import '../utils/logger.dart';
 export 'package:flutter/material.dart';
 
 
 
-final Map<String, Component> components = {
-  RichTextComponent().type: RichTextComponent(),
-  TextComponent().type: TextComponent(),
-  IconButtonComponent().type: IconButtonComponent(),
-  TextButtonComponent().type: TextButtonComponent(),
-  ContainerComponent().type: ContainerComponent(),
-  RowComponent().type: RowComponent(),
-  ColumnComponent().type: ColumnComponent(),
-  GroupCheckboxComponent().type: GroupCheckboxComponent(),
-  GroupRadioComponent().type: GroupRadioComponent(),
-  CheckboxComponent().type: CheckboxComponent(),
-  TextFieldComponent().type: TextFieldComponent(),
-  // "NullComponent": throw Exception("NullComponent is not a valid component."),
-};
+class ComponentFactory {
 
+  static final Map<String, Component Function(Map<String, dynamic> data)> _components = {
+    RichTextComponent().type: (_) => RichTextComponent(_),
+    TextComponent().type: (_) => TextComponent(_),
+    IconButtonComponent().type: (_) => IconButtonComponent(_),
+    TextButtonComponent().type: (_) => TextButtonComponent(_),
+    ContainerComponent().type: (_) => ContainerComponent(_),
+    RowComponent().type: (_) => RowComponent(_),
+    ColumnComponent().type: (_) => ColumnComponent(_),
+    GroupCheckboxComponent().type: (_) => GroupCheckboxComponent(_),
+    GroupRadioComponent().type: (_) => GroupRadioComponent(_),
+    CheckboxComponent().type: (_) => CheckboxComponent(_),
+    TextFieldComponent().type: (_) => TextFieldComponent(_),
+  };
+
+  static Component? create(Map<String, dynamic> data) {
+
+    final String type = StringUtil.capitalize("${data['component']}Component");
+
+    Logger.info("Component: $type");
+
+    final factory = _components[type];
+
+    if (factory != null) {
+      return factory(data);
+    }
+    else {
+      throw Exception("$type is not a valid component.");
+    }
+
+  }
+
+}

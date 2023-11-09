@@ -3,6 +3,13 @@ import '../interface.dart';
 
 class TextComponent extends Component {
 
+  TextComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -11,13 +18,11 @@ class TextComponent extends Component {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
+
     super.render(data: data);
 
-    widget = Text(
-      attributes["data"] ?? "",
-      key: uuid,
-    );
+    widget = componentWidget;
 
     return widget;
 
@@ -32,5 +37,11 @@ class TextComponent extends Component {
   void addChild(Component? child) {
     throw "$type cannot have children.";
   }
+
+  @override
+  Widget get componentWidget => Text(
+    attributes["data"] ?? "",
+    key: uuid,
+  );
 
 }

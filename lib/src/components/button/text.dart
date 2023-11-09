@@ -3,7 +3,13 @@ import '../interface.dart';
 
 class TextButtonComponent extends Component {
 
-  TextButtonComponent() : super();
+  TextButtonComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -12,7 +18,7 @@ class TextButtonComponent extends Component {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
 
     super.render(data: data);
 
@@ -25,6 +31,9 @@ class TextButtonComponent extends Component {
     return widget;
 
   }
+
+  @override
+  Widget get componentWidget => throw UnimplementedError();
 
 
 

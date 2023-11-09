@@ -4,9 +4,13 @@ import '../interface.dart';
 class RichTextComponent extends Component {
 
 
-  RichTextComponent() {
-    uuid = UniqueKey();
-  }
+  RichTextComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -14,16 +18,12 @@ class RichTextComponent extends Component {
   }
 
 
-
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
+
     super.render(data: data);
 
-    widget = RichText(
-      text: attributes["data"] ?? "",
-      key: uuid,
-    );
-
+    widget = componentWidget;
 
     return widget;
 
@@ -39,6 +39,12 @@ class RichTextComponent extends Component {
   void addChild(Component? _child) {
     throw "$type cannot have children.";
   }
+
+  @override
+  Widget get componentWidget => RichText(
+    text: attributes["data"] ?? "",
+    key: uuid,
+  );
 
 
 }

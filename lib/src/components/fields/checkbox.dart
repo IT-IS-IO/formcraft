@@ -1,11 +1,17 @@
 
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'field_interface.dart';
+import '../field_interface.dart';
 
 class CheckboxComponent extends FieldComponent {
 
-  CheckboxComponent() : super();
+  CheckboxComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -14,21 +20,26 @@ class CheckboxComponent extends FieldComponent {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
 
     super.render(data: data);
 
-    fieldBloc = BooleanFieldBloc();
-
-    widget = CheckboxFieldBlocBuilder(
-      key: uuid,
-      booleanFieldBloc: fieldBloc as BooleanFieldBloc,
-      body: child?.widget ?? const SizedBox(),
-    );
+    widget = componentWidget;
 
     return widget;
 
   }
+
+  @override
+  Widget get componentWidget {
+    fieldBloc = BooleanFieldBloc();
+    return CheckboxFieldBlocBuilder(
+      key: uuid,
+      booleanFieldBloc: fieldBloc as BooleanFieldBloc,
+      body: Text(attributes['label'] ?? ''),
+    );
+  }
+
 
 
 }

@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/utils/map_util.dart';
+import 'package:formcraft/src/utils/map.dart';
 
 class ValueUtil {
 

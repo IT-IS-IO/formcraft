@@ -1,58 +1,60 @@
 
-
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/utils/value_util.dart';
+import '../utils/logger.dart';
 export 'package:flutter/material.dart';
 
-abstract class Component {
+abstract class Component extends ChangeNotifier {
 
-  Component({ Key? uuid }) : uuid = uuid ?? UniqueKey();
+  Component({
+    Map<String, dynamic> attributes = const { },
+    Key? uuid
+  }) : uuid = uuid ?? UniqueKey() , attributes = attributes;
 
-  Key uuid = UniqueKey();
+  final Key uuid;
 
   Map<String, dynamic> attributes = { };
+
+
   dynamic child;
 
+
   Widget? widget;
+
+
+  bool hidden = false;
 
 
   String get type;
 
 
-  List<Widget> get childrenWidgets {
+  Widget get componentWidget;
+
+
+  List<Widget> get children {
     if (child == null) return [];
     return (child as List<Component>).map((child) => child.widget ?? const SizedBox()).toList();
   }
 
 
-  Widget? render({ required Map<String, dynamic> data }) {
-    attributes.addAll(data);
+  Widget? render({ Map<String, dynamic>? data }) {
+
+    if (attributes.isEmpty && data != null) {
+      attributes.addAll(data);
+    }
+    else if (attributes.isEmpty && data == null) {
+      Logger.error("Component: Attributes is empty");
+    }
+
     return null;
   }
 
 
-  void rebuild() {
-
-    // widget = render(data: attributes);
-
-  }
-
-
-  Key buildUniqueKey(Map<String, dynamic> data) {
-    return Key(ValueUtil.getAsString("uuid", data, defaultValue: UniqueKey().toString()));
-  }
-
-
   void addChild(Component? _child) {
-    print("Component $_child");
-
     if (_child == null) return;
     if (type == "RowComponent" || type == "ColumnComponent") {
       child == null ? child = [_child] : child.add(_child);
     }
     else child = _child;
-
-    print("child $child");
   }
 
 

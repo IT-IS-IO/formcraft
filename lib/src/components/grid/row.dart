@@ -1,12 +1,18 @@
 
 import 'package:formcraft/src/builders/styles/_fc_alignment.dart';
-import 'package:formcraft/src/utils/value_util.dart';
+import 'package:formcraft/src/utils/value.dart';
 import '../interface.dart';
 
 
 class RowComponent extends Component {
 
-  RowComponent() : super();
+  RowComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -15,21 +21,24 @@ class RowComponent extends Component {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
 
     super.render(data: data);
 
-    widget = Row(
-      key: uuid,
-      mainAxisSize: AlignBuilder.mainAxisSize(ValueUtil.getAsString("mainAxisSize", data)),
-      mainAxisAlignment: AlignBuilder.mainAxisAlignment(ValueUtil.getAsString("mainAxisAlignment", data)),
-      crossAxisAlignment: AlignBuilder.crossAxisAlignment(ValueUtil.getAsString("crossAxisAlignment", data)),
-      children: childrenWidgets,
-    );
+    widget = componentWidget;
 
     return widget;
 
   }
+
+  @override
+  Widget get componentWidget => Row(
+    key: uuid,
+    mainAxisSize: AlignBuilder.mainAxisSize(ValueUtil.getAsString("mainAxisSize", attributes)),
+    mainAxisAlignment: AlignBuilder.mainAxisAlignment(ValueUtil.getAsString("mainAxisAlignment", attributes)),
+    crossAxisAlignment: AlignBuilder.crossAxisAlignment(ValueUtil.getAsString("crossAxisAlignment", attributes)),
+    children: children,
+  );
 
 
 }

@@ -4,7 +4,13 @@ import '../interface.dart';
 
 class ContainerComponent extends Component {
 
-  ContainerComponent() : super();
+  ContainerComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -13,18 +19,21 @@ class ContainerComponent extends Component {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
 
     super.render(data: data);
 
-    widget = Container(
-      key: uuid,
-      child: child?.widget ?? const SizedBox(),
-    );
+    widget = componentWidget;
 
     return widget;
 
   }
+
+  @override
+  Widget get componentWidget => Container(
+    key: uuid,
+    child: child?.widget ?? const SizedBox(),
+  );
 
 
 }

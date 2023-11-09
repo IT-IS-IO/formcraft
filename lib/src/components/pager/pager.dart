@@ -34,36 +34,46 @@ import 'drawer/pager_navigation_drawer.dart';
 
 class PagerComponent extends Component {
 
+  PagerComponent([
+    Key? uuid,
+    Map<String, dynamic> attributes = const {},
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type => "PagerComponent";
 
 
   @override
-  Widget? render({required Map<String, dynamic> data}) {
+  Widget? render({ Map<String, dynamic>? data}) {
 
-    widget = ChangeNotifierProvider(
-      create: (_) => PagerController(),
-      child: Column(
-        children: [
-
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: PagerDrawer(
-                children: children,
-              ),
-            ),
-          ),
-
-          const PagerNavigationDrawer(),
-
-        ],
-      ),
-    );
+    widget = componentWidget;
 
     return widget;
   }
+
+  @override
+  Widget get componentWidget => ChangeNotifierProvider(
+    create: (_) => PagerController(),
+    child: Column(
+      children: [
+
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: PagerDrawer(
+              children: children,
+            ),
+          ),
+        ),
+
+        const PagerNavigationDrawer(),
+
+      ],
+    ),
+  );
 
 
 }

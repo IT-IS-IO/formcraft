@@ -1,11 +1,17 @@
 
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'field_interface.dart';
+import '../field_interface.dart';
 
 class TextFieldComponent extends FieldComponent {
 
-  TextFieldComponent() : super();
+  TextFieldComponent([
+    Map<String, dynamic> attributes = const {},
+    Key? uuid,
+  ]) : super(
+      attributes: attributes,
+      uuid: uuid
+  );
 
   @override
   String get type {
@@ -14,20 +20,28 @@ class TextFieldComponent extends FieldComponent {
 
 
   @override
-  Widget? render({ required Map<String, dynamic> data }) {
+  Widget? render({ Map<String, dynamic>? data }) {
 
     super.render(data: data);
 
-    fieldBloc = TextFieldBloc();
-    
-    widget = TextFieldBlocBuilder(
-      key: uuid,
-      textFieldBloc: fieldBloc as TextFieldBloc,
-    );
+    widget = componentWidget;
 
     return widget;
 
   }
+
+  @override
+  Widget get componentWidget {
+
+    fieldBloc = TextFieldBloc();
+
+    return TextFieldBlocBuilder(
+      key: uuid,
+      textFieldBloc: fieldBloc as TextFieldBloc,
+    );
+  }
+
+
 
 
 }
