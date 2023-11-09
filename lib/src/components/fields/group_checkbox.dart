@@ -6,13 +6,7 @@ import '../field_interface.dart';
 
 class GroupCheckboxComponent extends FieldComponent {
 
-  GroupCheckboxComponent([
-    Map<String, dynamic> attributes = const {},
-    Key? uuid,
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  GroupCheckboxComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
 
   @override
   String get type {

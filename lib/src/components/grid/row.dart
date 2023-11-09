@@ -6,13 +6,7 @@ import '../interface.dart';
 
 class RowComponent extends Component {
 
-  RowComponent([
-    Map<String, dynamic> attributes = const {},
-    Key? uuid,
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  RowComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
 
   @override
   String get type {
@@ -27,7 +21,7 @@ class RowComponent extends Component {
 
     widget = componentWidget;
 
-    return widget;
+    return visible ? const SizedBox() : widget;
 
   }
 

@@ -3,13 +3,7 @@ import '../interface.dart';
 
 class IconButtonComponent extends Component {
 
-  IconButtonComponent([
-    Map<String, dynamic> attributes = const {},
-    Key? uuid,
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  IconButtonComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
 
   @override
   String get type {

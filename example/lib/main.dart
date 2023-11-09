@@ -70,6 +70,44 @@ class _MyAppState extends State<MyApp> {
                           "component": "textField",
                           "key": "FormCraftInput",
                           "initialValue": "Hello World!",
+                          "logic": [
+                            {
+                              "name": "Update Values: Animals",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "age",
+                                  "eq": "a"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Schema Update",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Update Values: Fruits",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "age",
+                                  "eq": "b"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Update fruit",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                                }
+                              ]
+                            }
+                          ],
                         },
                         {
                           "component": "groupRadio",
@@ -87,7 +125,7 @@ class _MyAppState extends State<MyApp> {
                               "value": "3",
                               "label": "Three"
                             }
-                          ]
+                          ],
                         },
                         {
                           "component": "checkbox",

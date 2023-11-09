@@ -1,15 +1,17 @@
 
-import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/providers/storage.dart';
+
+import '../../providers/formbloc.dart';
 
 
 abstract class Manager {
 
   late final Component? root;
 
-  final Map<String, dynamic> data = { };
+  final StorageProvider storage = StorageProvider.instance;
 
-  final FormBlocBuilder form = FormBlocBuilder();
+  final FormBlocProvider form = FormBlocProvider();
 
   Future<Widget?> init(BuildContext context, Map<String, dynamic> data);
 
@@ -19,11 +21,4 @@ abstract class Manager {
 
 }
 
-class FormBlocBuilder<T> extends FormBloc<T, T> {
 
-  FormBlocBuilder() : super(isLoading: false);
-
-  @override
-  void onSubmitting() { }
-
-}

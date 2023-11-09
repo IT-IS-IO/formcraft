@@ -4,13 +4,8 @@ import '../interface.dart';
 class RichTextComponent extends Component {
 
 
-  RichTextComponent([
-    Map<String, dynamic> attributes = const {},
-    Key? uuid,
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  RichTextComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
+
 
   @override
   String get type {

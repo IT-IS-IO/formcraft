@@ -5,7 +5,7 @@
 import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:formcraft/src/utils/logger.dart';
-import 'condition_operators_interface.dart';
+import 'interface.dart';
 
 
 class IsEqualTo extends ConditionOperator {
@@ -16,10 +16,12 @@ class IsEqualTo extends ConditionOperator {
     return 'isEqual';
   }
 
+
   @override
   String get displayedName {
     return 'Is Equal To';
   }
+
 
   @override
   bool execute(Map<String, dynamic> options) {
@@ -43,4 +45,5 @@ class IsEqualTo extends ConditionOperator {
 
     return const DeepCollectionEquality().equals(value, comparedValue);
   }
+
 }

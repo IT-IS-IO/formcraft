@@ -1,8 +1,9 @@
 
-import 'condition_operators_interface.dart';
+import 'interface.dart';
 
 
 class LessThan extends ConditionOperator {
+
   @override
   String get operatorKey {
     return 'lessThan';

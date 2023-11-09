@@ -34,13 +34,7 @@ import 'drawer/pager_navigation_drawer.dart';
 
 class PagerComponent extends Component {
 
-  PagerComponent([
-    Key? uuid,
-    Map<String, dynamic> attributes = const {},
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  PagerComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
 
   @override
   String get type => "PagerComponent";

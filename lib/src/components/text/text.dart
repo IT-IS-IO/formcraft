@@ -3,13 +3,7 @@ import '../interface.dart';
 
 class TextComponent extends Component {
 
-  TextComponent([
-    Map<String, dynamic> attributes = const {},
-    Key? uuid,
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  TextComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
 
   @override
   String get type {

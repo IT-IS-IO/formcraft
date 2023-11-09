@@ -3,14 +3,10 @@
 abstract class ConditionOperator {
 
 
-  String get operatorKey {
-    return '';
-  }
+  String get operatorKey;
 
 
-  String get displayedName {
-    return '';
-  }
+  String get displayedName;
 
 
   bool get requireValue {

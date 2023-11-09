@@ -6,18 +6,14 @@ export 'package:flutter/material.dart';
 
 abstract class FieldComponent extends Component {
 
-  FieldComponent({
-    Map<String, dynamic> attributes = const { },
-    Key? uuid
-  }) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  FieldComponent({ Map<String, dynamic> attributes = const { } }) : super(attributes: attributes);
 
 
   SingleFieldBloc? fieldBloc;
 
-  bool get isFieldComponent => true;
+
+  bool get conditional => attributes.containsKey('logic');
+
 
   void updateValue(dynamic value) {
     fieldBloc?.updateValue(value);
@@ -32,5 +28,11 @@ abstract class FieldComponent extends Component {
   void validate() {
     fieldBloc?.validate();
   }
+
+
+
+
+
+
 
 }

@@ -36,11 +36,12 @@ class _FormCraftState extends State<FormCraft> {
           title: const Text('FormCraft'),
           actions: [
 
-            // rebuild
             IconButton(
               icon: const Icon(Icons.refresh),
               onPressed: () {
-                stateManager.hide(setState);
+                setState(() {
+                  stateManager.hide(setState);
+                });
               },
             ),
 
@@ -53,7 +54,7 @@ class _FormCraftState extends State<FormCraft> {
             builder: (_, AsyncSnapshot<Widget?> snapshot) {
 
               if (snapshot.hasData) {
-                return snapshot.data!;
+                return snapshot.data ?? const Text('No data');
               }
 
               if (snapshot.hasError) {

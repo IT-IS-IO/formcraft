@@ -8,6 +8,7 @@ import 'interface.dart';
 
 class StateManager extends Manager {
 
+
   @override
   Future<Widget?> init(BuildContext context, Map<String, dynamic> data) async {
 
@@ -17,8 +18,11 @@ class StateManager extends Manager {
 
     renderWidgets(root!);
 
+    storage.set("context", context);
+
     return root?.widget;
   }
+
 
 
   @override
@@ -44,16 +48,17 @@ class StateManager extends Manager {
         createComponent(data['child'], parent: component);
       }
 
-      super.data[component.uuid.toString()] = {
+      storage.set(component.uuid.toString(), {
         "uuid": component.uuid,
         "type": component.type,
         "parent": parent?.uuid,
         "component": component,
-      };
+      });
 
     }
 
   }
+
 
 
   @override
@@ -73,16 +78,47 @@ class StateManager extends Manager {
     component.render();
 
     if (component is FieldComponent) {
+
       form.addFieldBloc(fieldBloc: component.fieldBloc as FieldBloc);
+
     }
 
   }
 
 
+
   void hide(setState) {
-    // (root?.child as List<Component>).first.hide();
-    // setState(() {});
+
+    // if ((root?.child as List<Component>).first.listenable) {
+    //   (root?.child as List<Component>).first.toggleHide();
+    //   print((root?.child as List<Component>).first.visible);
+    // }
+    // else {
+    //   (root?.child as List<Component>).first.toListenable();
+    // }
+
+
+    Map<String, dynamic>? component = storage.get(const Key("FormCraftInput").toString());
+    Map<String, dynamic>? secondField = storage.get(const Key("FormCraftRadioGroup").toString());
+
+
+    Component? com = component?["component"];
+    Component? sec = secondField?["component"];
+
+    print(com);
+    print(sec);
+
+    (sec as FieldComponent).fieldBloc
+        ?..updateValidators([
+            (value) {
+            print(value);
+            return null;
+          }
+        ])
+        ..subscribeToFieldBlocs([(com as FieldComponent).fieldBloc as FieldBloc]);
+
   }
+
 
 
 }

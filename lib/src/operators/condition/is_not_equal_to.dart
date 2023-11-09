@@ -1,6 +1,6 @@
 
 import 'package:collection/collection.dart';
-import 'condition_operators_interface.dart';
+import 'interface.dart';
 
 
 class IsNotEqualTo extends ConditionOperator {

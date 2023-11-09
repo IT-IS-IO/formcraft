@@ -5,13 +5,7 @@ import '../field_interface.dart';
 
 class CheckboxComponent extends FieldComponent {
 
-  CheckboxComponent([
-    Map<String, dynamic> attributes = const {},
-    Key? uuid,
-  ]) : super(
-      attributes: attributes,
-      uuid: uuid
-  );
+  CheckboxComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
 
   @override
   String get type {
