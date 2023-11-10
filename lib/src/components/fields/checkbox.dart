@@ -5,7 +5,11 @@ import '../field_interface.dart';
 
 class CheckboxComponent extends FieldComponent {
 
-  CheckboxComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
+  CheckboxComponent([
+    Map<String, dynamic> attributes = const { }
+  ]) : super(attributes: attributes) {
+    fieldBloc = BooleanFieldBloc();
+  }
 
   @override
   String get type {
@@ -14,19 +18,7 @@ class CheckboxComponent extends FieldComponent {
 
 
   @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = componentWidget;
-
-    return widget;
-
-  }
-
-  @override
   Widget get componentWidget {
-    fieldBloc = BooleanFieldBloc();
     return CheckboxFieldBlocBuilder(
       key: uuid,
       booleanFieldBloc: fieldBloc as BooleanFieldBloc,

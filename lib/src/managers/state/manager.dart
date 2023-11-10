@@ -79,6 +79,11 @@ class StateManager extends Manager {
 
     if (component is FieldComponent) {
 
+      if (component.fieldBloc == null) {
+        print(component);
+        throw Exception("FieldComponent: FieldBloc is null");
+      }
+
       form.addFieldBloc(fieldBloc: component.fieldBloc as FieldBloc);
 
     }
@@ -87,38 +92,14 @@ class StateManager extends Manager {
 
 
 
-  void hide(setState) {
+  void hide() {
 
-    // if ((root?.child as List<Component>).first.listenable) {
-    //   (root?.child as List<Component>).first.toggleHide();
-    //   print((root?.child as List<Component>).first.visible);
-    // }
-    // else {
-    //   (root?.child as List<Component>).first.toListenable();
-    // }
+    Component? component = (root?.child as List<Component>).first;
 
+    component.toggleHide();
 
-    Map<String, dynamic>? component = storage.get(const Key("FormCraftInput").toString());
-    Map<String, dynamic>? secondField = storage.get(const Key("FormCraftRadioGroup").toString());
-
-
-    Component? com = component?["component"];
-    Component? sec = secondField?["component"];
-
-    print(com);
-    print(sec);
-
-    (sec as FieldComponent).fieldBloc
-        ?..updateValidators([
-            (value) {
-            print(value);
-            return null;
-          }
-        ])
-        ..subscribeToFieldBlocs([(com as FieldComponent).fieldBloc as FieldBloc]);
-
+    renderWidgets(component);
   }
-
 
 
 }

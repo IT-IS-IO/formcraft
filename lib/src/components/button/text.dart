@@ -12,22 +12,11 @@ class TextButtonComponent extends Component {
 
 
   @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = TextButton(
-      key: uuid,
-      child: child?.widget ?? const SizedBox(),
-      onPressed: () {},
-    );
-
-    return widget;
-
-  }
-
-  @override
-  Widget get componentWidget => throw UnimplementedError();
+  Widget get componentWidget => TextButton(
+    key: uuid,
+    child: child?.widget ?? const SizedBox(),
+    onPressed: () {},
+  );
 
 
 

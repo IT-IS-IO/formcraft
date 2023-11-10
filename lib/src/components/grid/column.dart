@@ -15,18 +15,6 @@ class ColumnComponent extends Component {
 
 
   @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = componentWidget;
-
-    return widget;
-
-  }
-
-
-  @override
   Widget get componentWidget => Column(
     key: uuid,
     mainAxisSize: AlignBuilder.mainAxisSize(ValueUtil.getAsString("mainAxisSize", attributes)),

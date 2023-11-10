@@ -6,6 +6,7 @@ export 'package:flutter/material.dart';
 
 abstract class FieldComponent extends Component {
 
+
   FieldComponent({ Map<String, dynamic> attributes = const { } }) : super(attributes: attributes);
 
 
@@ -19,20 +20,38 @@ abstract class FieldComponent extends Component {
     fieldBloc?.updateValue(value);
   }
 
+
   void changeValue(dynamic value) {
     fieldBloc?.changeValue(value);
   }
 
+
   dynamic get value => fieldBloc?.value;
+
 
   void validate() {
     fieldBloc?.validate();
   }
 
 
+  void subscribeToFieldBloc(List<FieldComponent> fieldBlocComponent) {
+
+    if (fieldBloc == null) {
+      throw Exception("FieldComponent: FieldBloc is null");
+    }
+    else {
+      // TODO: create a single field bloc
+    }
+
+    fieldBloc!.subscribeToFieldBlocs(fieldBlocComponent.map((e) => e.fieldBloc!).toList());
+
+  }
 
 
-
+  @override
+  void close() {
+    fieldBloc?.close();
+  }
 
 
 }

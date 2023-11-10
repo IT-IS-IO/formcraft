@@ -39,9 +39,7 @@ class _FormCraftState extends State<FormCraft> {
             IconButton(
               icon: const Icon(Icons.refresh),
               onPressed: () {
-                setState(() {
-                  stateManager.hide(setState);
-                });
+                  stateManager.hide();
               },
             ),
 

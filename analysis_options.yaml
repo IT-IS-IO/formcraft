@@ -7,3 +7,4 @@ analyzer:
   errors:
     curly_braces_in_flow_control_structures: ignore
     constant_identifier_names: ignore
+    unnecessary_string_interpolations: ignore

@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
                 "children": [
                   {
                     "component": "container",
+                    "logic": [],
                     "child": {
                       "component": "column",
                       "mainAxisAlignment": "center",

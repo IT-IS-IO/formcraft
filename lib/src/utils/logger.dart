@@ -96,13 +96,13 @@ LogPrinter logDefaultPrinter = (Object object, {String? name, StackTrace? stackT
       case LoggerType.ordinary:
         return debugPrint(object.toString());
       case LoggerType.info:
-        return print(object.toString());
+        return debugPrint(object.toString());
       case LoggerType.warning:
-        return print(object.toString());
+        return debugPrint(object.toString());
       case LoggerType.error:
         return debugPrint(object.toString());
       case LoggerType.success:
-        return print(object.toString());
+        return debugPrint(object.toString());
       default:
         return debugPrint(object.toString());
     }
@@ -111,8 +111,8 @@ LogPrinter logDefaultPrinter = (Object object, {String? name, StackTrace? stackT
   _preparePrinter(_prepareObject());
 
   if (stackTrace != null) {
-    print(_coloredString('__________________________________'));
-    print(_coloredString('${stackTrace.toString()}'));
+    debugPrint(_coloredString('__________________________________'));
+    debugPrint(_coloredString('${stackTrace.toString()}'));
   }
 
 };

@@ -1,5 +1,5 @@
 name: formcraft
-description: FormCraft Plugin
+description: FormCraft - Cross-Platform Dynamic Form Builder
 version: 0.0.1
 homepage: https://pub.dev/packages/formcraft
 
@@ -13,11 +13,12 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  collection:
+  collection: ^1.17.1
   form_bloc: ^0.31.0
   flutter_form_bloc: ^0.31.0
   expandable_page_view: ^1.0.17
-  http:
+  provider: ^6.1.1
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:

@@ -7,32 +7,19 @@ import '../field_interface.dart';
 
 class GroupRadioComponent extends FieldComponent {
 
-  GroupRadioComponent([ Map<String, dynamic> attributes = const { } ]) : super(attributes: attributes);
+  GroupRadioComponent([
+    Map<String, dynamic> attributes = const { }
+  ]) : super(attributes: attributes) {
+    fieldBloc = SelectFieldBloc(items: FieldUtil.buildOptions(attributes));
+  }
 
   @override
   String get type {
     return 'GroupRadioComponent';
   }
 
-
-  @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = componentWidget;
-
-    return widget;
-
-  }
-
   @override
   Widget get componentWidget {
-
-    fieldBloc = SelectFieldBloc(
-      items: FieldUtil.buildOptions(attributes),
-    );
-
     return RadioButtonGroupFieldBlocBuilder(
       key: uuid,
       selectFieldBloc: fieldBloc as SelectFieldBloc,

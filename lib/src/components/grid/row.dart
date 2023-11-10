@@ -13,18 +13,6 @@ class RowComponent extends Component {
     return 'RowComponent';
   }
 
-
-  @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = componentWidget;
-
-    return visible ? const SizedBox() : widget;
-
-  }
-
   @override
   Widget get componentWidget => Row(
     key: uuid,
@@ -33,6 +21,5 @@ class RowComponent extends Component {
     crossAxisAlignment: AlignBuilder.crossAxisAlignment(ValueUtil.getAsString("crossAxisAlignment", attributes)),
     children: children,
   );
-
 
 }

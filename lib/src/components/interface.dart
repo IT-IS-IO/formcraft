@@ -47,52 +47,7 @@ abstract class Component extends ChangeNotifier {
   }
 
 
-  void toggleHide() {
-    if (!listenable) {
-      throw Exception("Component: Not listenable");
-    }
-    visible = !visible;
-    notifyListeners();
-  }
-
-
-  void toListenable() {
-
-    if (widget == null) {
-      throw Exception("Component: Widget is null");
-    }
-
-    if (listenable) {
-      throw Exception("Component: Already listenable");
-    }
-
-    oldWidget = widget;
-
-    widget = ListenableBuilder(
-      listenable: this,
-      builder: (context, child) {
-
-        if (!visible) return const SizedBox();
-
-        return widget ?? const SizedBox();
-      },
-    );
-
-    listenable = true;
-
-  }
-
-
-  void toUnlistenable() {
-
-    if (oldWidget == null) {
-      throw Exception("Component: OldWidget is null");
-    }
-
-    widget = oldWidget;
-
-    listenable = false;
-  }
+  bool get hasCondition => attributes.containsKey("logic");
 
 
   Widget? render({ Map<String, dynamic>? data }) {
@@ -104,7 +59,27 @@ abstract class Component extends ChangeNotifier {
       Logger.error("Component: Attributes is empty");
     }
 
-    return null;
+    widget = _wrapWithListenable();
+
+    return widget;
+
+  }
+
+
+  Widget _wrapWithListenable() {
+
+    if (!hasCondition) return componentWidget;
+
+    listenable = true;
+
+    return ListenableBuilder(
+      listenable: this,
+      builder: (context, child) {
+        if (!visible) return const SizedBox();
+        return componentWidget;
+      },
+    );
+
   }
 
 
@@ -114,5 +89,18 @@ abstract class Component extends ChangeNotifier {
     else child = _child;
   }
 
+
+  void toggleHide() {
+    if (!listenable) {
+      throw Exception("Component: Not listenable");
+    }
+    visible = !visible;
+    notifyListeners();
+  }
+
+
+  void close() {
+    throw Exception("Component: Close method not implemented");
+  }
 
 }

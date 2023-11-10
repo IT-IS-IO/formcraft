@@ -41,14 +41,6 @@ class PagerComponent extends Component {
 
 
   @override
-  Widget? render({ Map<String, dynamic>? data}) {
-
-    widget = componentWidget;
-
-    return widget;
-  }
-
-  @override
   Widget get componentWidget => ChangeNotifierProvider(
     create: (_) => PagerController(),
     child: Column(

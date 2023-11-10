@@ -12,22 +12,11 @@ class IconButtonComponent extends Component {
 
 
   @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = IconButton(
-      key: uuid,
-      icon: child?.widget ?? const SizedBox(),
-      onPressed: () {},
-    );
-
-    return widget;
-
-  }
-
-  @override
-  Widget get componentWidget => throw UnimplementedError();
+  Widget get componentWidget => IconButton(
+    key: uuid,
+    icon: child?.widget ?? const SizedBox(),
+    onPressed: () {},
+  );
 
 
 }

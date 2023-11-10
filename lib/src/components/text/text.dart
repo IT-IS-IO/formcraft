@@ -11,18 +11,6 @@ class TextComponent extends Component {
   }
 
 
-  @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = componentWidget;
-
-    return widget;
-
-  }
-
-
   void changeText(String text) {
     attributes["data"] = text;
   }
@@ -31,6 +19,7 @@ class TextComponent extends Component {
   void addChild(Component? child) {
     throw "$type cannot have children.";
   }
+
 
   @override
   Widget get componentWidget => Text(

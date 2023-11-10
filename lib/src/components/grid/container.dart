@@ -14,18 +14,6 @@ class ContainerComponent extends Component {
 
 
   @override
-  Widget? render({ Map<String, dynamic>? data }) {
-
-    super.render(data: data);
-
-    widget = componentWidget;
-
-    return widget;
-
-  }
-
-
-  @override
   Widget get componentWidget => Container(
     key: uuid,
     child: child?.widget ?? const SizedBox(),
