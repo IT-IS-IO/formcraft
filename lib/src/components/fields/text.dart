@@ -8,7 +8,7 @@ class TextFieldComponent extends FieldComponent {
   TextFieldComponent([
     Map<String, dynamic> attributes = const { }
   ]) : super(attributes: attributes) {
-    fieldBloc = TextFieldBloc();
+    listener = TextFieldBloc();
   }
 
   @override
@@ -20,7 +20,7 @@ class TextFieldComponent extends FieldComponent {
   Widget get componentWidget {
     return TextFieldBlocBuilder(
       key: uuid,
-      textFieldBloc: fieldBloc as TextFieldBloc,
+      textFieldBloc: listener as TextFieldBloc,
     );
   }
 

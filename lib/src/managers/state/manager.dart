@@ -79,12 +79,11 @@ class StateManager extends Manager {
 
     if (component is FieldComponent) {
 
-      if (component.fieldBloc == null) {
-        print(component);
+      if (component.listener == null) {
         throw Exception("FieldComponent: FieldBloc is null");
       }
 
-      form.addFieldBloc(fieldBloc: component.fieldBloc as FieldBloc);
+      form.addFieldBloc(fieldBloc: component.listener as FieldBloc);
 
     }
 
@@ -96,7 +95,6 @@ class StateManager extends Manager {
 
     Component? component = (root?.child as List<Component>).first;
 
-    component.toggleHide();
 
     renderWidgets(component);
   }

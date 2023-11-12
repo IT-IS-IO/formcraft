@@ -8,7 +8,7 @@ class CheckboxComponent extends FieldComponent {
   CheckboxComponent([
     Map<String, dynamic> attributes = const { }
   ]) : super(attributes: attributes) {
-    fieldBloc = BooleanFieldBloc();
+    listener = BooleanFieldBloc();
   }
 
   @override
@@ -21,7 +21,7 @@ class CheckboxComponent extends FieldComponent {
   Widget get componentWidget {
     return CheckboxFieldBlocBuilder(
       key: uuid,
-      booleanFieldBloc: fieldBloc as BooleanFieldBloc,
+      booleanFieldBloc: listener as BooleanFieldBloc,
       body: Text(attributes['label'] ?? ''),
     );
   }

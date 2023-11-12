@@ -10,7 +10,7 @@ class GroupRadioComponent extends FieldComponent {
   GroupRadioComponent([
     Map<String, dynamic> attributes = const { }
   ]) : super(attributes: attributes) {
-    fieldBloc = SelectFieldBloc(items: FieldUtil.buildOptions(attributes));
+    listener = SelectFieldBloc(items: FieldUtil.buildOptions(attributes));
   }
 
   @override
@@ -22,7 +22,7 @@ class GroupRadioComponent extends FieldComponent {
   Widget get componentWidget {
     return RadioButtonGroupFieldBlocBuilder(
       key: uuid,
-      selectFieldBloc: fieldBloc as SelectFieldBloc,
+      selectFieldBloc: listener as SelectFieldBloc,
       itemBuilder: FieldUtil.itemBuilder,
       canTapItemTile: true,
     );

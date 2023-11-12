@@ -9,7 +9,7 @@ class GroupCheckboxComponent extends FieldComponent {
   GroupCheckboxComponent([
     Map<String, dynamic> attributes = const { }
   ]) : super(attributes: attributes) {
-    fieldBloc = MultiSelectFieldBloc(items: FieldUtil.buildOptions(attributes));
+    listener = MultiSelectFieldBloc(items: FieldUtil.buildOptions(attributes));
   }
 
   @override
@@ -22,7 +22,7 @@ class GroupCheckboxComponent extends FieldComponent {
   Widget get componentWidget {
     return CheckboxGroupFieldBlocBuilder(
       key: uuid,
-      multiSelectFieldBloc: fieldBloc as MultiSelectFieldBloc,
+      multiSelectFieldBloc: listener as MultiSelectFieldBloc,
       itemBuilder: FieldUtil.itemBuilder,
       canTapItemTile: true,
     );

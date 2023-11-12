@@ -1,7 +1,8 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:formcraft/src/other/enums/enums.dart';
-import 'package:formcraft/src/other/typedefs/fc_typedefs.dart';
+
+import '../other/typedefs/typedefs.dart';
 
 
 

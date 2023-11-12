@@ -1,17 +1,19 @@
 
 import 'package:flutter/material.dart';
+import 'package:formcraft/src/components/field_interface.dart';
+import 'package:formcraft/src/other/typedefs/typedefs.dart';
 import 'package:formcraft/src/utils/component.dart';
+import 'package:formcraft/src/operators/condition.dart';
 import '../utils/logger.dart';
 export 'package:flutter/material.dart';
 
 abstract class Component extends ChangeNotifier {
 
   Component({
-    Map<String, dynamic> attributes = const { }
-  }) : attributes = attributes,
-       uuid = attributes.containsKey("key")
-          ? Key(attributes["key"])
-          : UniqueKey();
+    this.attributes = const { }
+  }) : uuid = attributes.containsKey("key")
+        ? Key(attributes["key"])
+        : UniqueKey();
 
 
   final Key uuid;
@@ -20,16 +22,19 @@ abstract class Component extends ChangeNotifier {
   Map<String, dynamic> attributes = { };
 
 
+  Condition? condition;
+
+
+  ListenOperator? listener;
+
+
   dynamic child;
 
 
   Widget? widget;
 
 
-  Widget? oldWidget;
-
-
-  bool visible = true;
+  bool _visible = true;
 
 
   bool listenable = false;
@@ -41,13 +46,22 @@ abstract class Component extends ChangeNotifier {
   Widget get componentWidget;
 
 
+  bool get isVisible => _visible;
+
+
+  set visible(bool value) {
+    _visible = value;
+    notifyListeners();
+  }
+
+
   List<Widget> get children {
     if (child == null) return [];
     return (child as List<Component>).map((child) => child.widget ?? const SizedBox()).toList();
   }
 
 
-  bool get hasCondition => attributes.containsKey("logic");
+  bool get hasCondition => condition != null;
 
 
   Widget? render({ Map<String, dynamic>? data }) {
@@ -59,7 +73,20 @@ abstract class Component extends ChangeNotifier {
       Logger.error("Component: Attributes is empty");
     }
 
+
+    if (attributes.containsKey("logic")) {
+
+      listener ??= ListenOperatorBuilder();
+
+      condition = Condition(this, attributes['logic']);
+
+      visible = condition!.evaluate();
+
+    }
+
+
     widget = _wrapWithListenable();
+
 
     return widget;
 
@@ -75,7 +102,7 @@ abstract class Component extends ChangeNotifier {
     return ListenableBuilder(
       listenable: this,
       builder: (context, child) {
-        if (!visible) return const SizedBox();
+        if (!isVisible) return const SizedBox();
         return componentWidget;
       },
     );
@@ -90,17 +117,11 @@ abstract class Component extends ChangeNotifier {
   }
 
 
-  void toggleHide() {
-    if (!listenable) {
-      throw Exception("Component: Not listenable");
-    }
-    visible = !visible;
-    notifyListeners();
-  }
-
-
   void close() {
-    throw Exception("Component: Close method not implemented");
+    dispose();
+    listener?.close();
+    // throw Exception("Component: Close method not implemented");
   }
+
 
 }

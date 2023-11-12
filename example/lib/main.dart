@@ -30,7 +30,6 @@ class _MyAppState extends State<MyApp> {
                 "children": [
                   {
                     "component": "container",
-                    "logic": [],
                     "child": {
                       "component": "column",
                       "mainAxisAlignment": "center",
@@ -40,44 +39,6 @@ class _MyAppState extends State<MyApp> {
                           "component": "textField",
                           "key": "FormCraftInput",
                           "initialValue": "Hello World!",
-                          "logic": [
-                            {
-                              "name": "Update Values: Animals",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "age",
-                                  "eq": "a"
-                                }
-                              },
-                              "actions": [
-                                {
-                                  "name": "Schema Update",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
-                                }
-                              ]
-                            },
-                            {
-                              "name": "Update Values: Fruits",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "age",
-                                  "eq": "b"
-                                }
-                              },
-                              "actions": [
-                                {
-                                  "name": "Update fruit",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
-                                }
-                              ]
-                            }
-                          ],
                         },
                         {
                           "component": "groupRadio",
@@ -94,6 +55,62 @@ class _MyAppState extends State<MyApp> {
                             {
                               "value": "3",
                               "label": "Three"
+                            }
+                          ],
+                          "logic": [
+                            {
+                              "name": "Update Values: Animals",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "FormCraftCheckboxGroup",
+                                  "eq": "hello"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Schema Update",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Update Values: Animals",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "FormCraftInput",
+                                  "eq": "hello"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Schema Update",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Update Values: Fruits",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "FormCraftInput",
+                                  "eq": "imo"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Update fruit",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                                }
+                              ]
                             }
                           ],
                         },
@@ -128,6 +145,44 @@ class _MyAppState extends State<MyApp> {
                         {
                           "component": "text",
                           "data": "Hey! It's warioddly",
+                          "logic": [
+                            {
+                              "name": "Update Values: Fruits",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "FormCraftInput",
+                                  "eq": "imo"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Update fruit",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Update Values: Fruits",
+                              "trigger": {
+                                "type": "simple",
+                                "simple": {
+                                  "show": true,
+                                  "when": "FormCraftInput",
+                                  "eq": "show text"
+                                }
+                              },
+                              "actions": [
+                                {
+                                  "name": "Update fruit",
+                                  "type": "mergeComponentSchema",
+                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     },
