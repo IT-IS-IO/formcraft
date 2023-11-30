@@ -1,7 +1,5 @@
 
-
-
-import '../components/interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 
 class StorageProvider {
 

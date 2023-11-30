@@ -1,8 +1,6 @@
 
-import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'package:formcraft/src/components/components.dart';
-import 'package:formcraft/src/components/field_interface.dart';
-import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/components/component_factory.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 import 'interface.dart';
 
 
@@ -48,10 +46,10 @@ class StateManager extends Manager {
         createComponent(data['child'], parent: component);
       }
 
-      storage.set(component.uuid.toString(), {
-        "uuid": component.uuid,
+      storage.set(component.key.toString(), {
+        "uuid": component.key,
         "type": component.type,
-        "parent": parent?.uuid,
+        "parent": parent?.key,
         "component": component,
       });
 
@@ -77,25 +75,21 @@ class StateManager extends Manager {
 
     component.render();
 
-    if (component is FieldComponent) {
+    form.addFieldBloc(fieldBloc: component.listener);
 
-      if (component.listener == null) {
-        throw Exception("FieldComponent: FieldBloc is null");
-      }
-
-      form.addFieldBloc(fieldBloc: component.listener as FieldBloc);
-
-    }
+    // if (component is FieldComponent) {
+    //
+    //   if (component.listener == null) {
+    //     throw Exception("FieldComponent: FieldBloc is null");
+    //   }
+    // }
 
   }
 
 
 
   void hide() {
-
     Component? component = (root?.child as List<Component>).first;
-
-
     renderWidgets(component);
   }
 

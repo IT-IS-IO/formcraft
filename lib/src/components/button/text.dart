@@ -1,5 +1,5 @@
 
-import '../interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 
 class TextButtonComponent extends Component {
 
@@ -13,7 +13,7 @@ class TextButtonComponent extends Component {
 
   @override
   Widget get componentWidget => TextButton(
-    key: uuid,
+    key: key,
     child: child?.widget ?? const SizedBox(),
     onPressed: () {},
   );

@@ -1,5 +1,6 @@
 
-import '../interface.dart';
+
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 
 class IconButtonComponent extends Component {
 
@@ -13,7 +14,7 @@ class IconButtonComponent extends Component {
 
   @override
   Widget get componentWidget => IconButton(
-    key: uuid,
+    key: key,
     icon: child?.widget ?? const SizedBox(),
     onPressed: () {},
   );

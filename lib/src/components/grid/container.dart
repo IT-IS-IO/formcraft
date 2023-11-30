@@ -1,5 +1,5 @@
 
-import '../interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 
 
 class ContainerComponent extends Component {
@@ -15,7 +15,7 @@ class ContainerComponent extends Component {
 
   @override
   Widget get componentWidget => Container(
-    key: uuid,
+    key: key,
     child: child?.widget ?? const SizedBox(),
   );
 

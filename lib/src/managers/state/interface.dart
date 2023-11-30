@@ -1,5 +1,5 @@
 
-import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 import 'package:formcraft/src/providers/storage.dart';
 
 import '../../providers/formbloc.dart';

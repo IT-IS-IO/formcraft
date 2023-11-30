@@ -1,7 +1,7 @@
 
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import '../field_interface.dart';
+import '../interfaces/field_interface.dart';
 
 class CheckboxComponent extends FieldComponent {
 
@@ -20,7 +20,7 @@ class CheckboxComponent extends FieldComponent {
   @override
   Widget get componentWidget {
     return CheckboxFieldBlocBuilder(
-      key: uuid,
+      key: key,
       booleanFieldBloc: listener as BooleanFieldBloc,
       body: Text(attributes['label'] ?? ''),
     );

@@ -8,7 +8,7 @@ import 'package:formcraft/src/components/fields/text.dart';
 import 'package:formcraft/src/components/grid/column.dart';
 import 'package:formcraft/src/components/grid/container.dart';
 import 'package:formcraft/src/components/grid/row.dart';
-import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 import 'package:formcraft/src/components/text/rich.dart';
 import 'package:formcraft/src/components/text/text.dart';
 import 'package:formcraft/src/utils/string.dart';

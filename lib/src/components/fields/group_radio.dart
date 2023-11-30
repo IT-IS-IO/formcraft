@@ -3,7 +3,7 @@
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:formcraft/src/utils/field.dart';
 
-import '../field_interface.dart';
+import '../interfaces/field_interface.dart';
 
 class GroupRadioComponent extends FieldComponent {
 
@@ -21,7 +21,7 @@ class GroupRadioComponent extends FieldComponent {
   @override
   Widget get componentWidget {
     return RadioButtonGroupFieldBlocBuilder(
-      key: uuid,
+      key: key,
       selectFieldBloc: listener as SelectFieldBloc,
       itemBuilder: FieldUtil.itemBuilder,
       canTapItemTile: true,

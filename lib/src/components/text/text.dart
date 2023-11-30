@@ -1,5 +1,5 @@
 
-import '../interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 
 class TextComponent extends Component {
 
@@ -24,7 +24,7 @@ class TextComponent extends Component {
   @override
   Widget get componentWidget => Text(
     attributes["data"] ?? "",
-    key: uuid,
+    key: key,
   );
 
 }

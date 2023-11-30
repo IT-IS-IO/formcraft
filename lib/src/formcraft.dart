@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:formcraft/src/components/interface.dart';
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 import 'package:formcraft/src/utils/value.dart';
 import 'managers/state/manager.dart';
 

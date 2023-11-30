@@ -1,7 +1,7 @@
 
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import '../field_interface.dart';
+import '../interfaces/field_interface.dart';
 
 class TextFieldComponent extends FieldComponent {
 
@@ -19,7 +19,7 @@ class TextFieldComponent extends FieldComponent {
   @override
   Widget get componentWidget {
     return TextFieldBlocBuilder(
-      key: uuid,
+      key: key,
       textFieldBloc: listener as TextFieldBloc,
     );
   }

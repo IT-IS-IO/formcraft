@@ -1,5 +1,6 @@
 
-import '../interface.dart';
+
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 
 class RichTextComponent extends Component {
 
@@ -26,7 +27,7 @@ class RichTextComponent extends Component {
   @override
   Widget get componentWidget => RichText(
     text: attributes["data"] ?? "",
-    key: uuid,
+    key: key,
   );
 
 

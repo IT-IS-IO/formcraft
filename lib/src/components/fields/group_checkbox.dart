@@ -2,7 +2,7 @@
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:formcraft/src/utils/field.dart';
-import '../field_interface.dart';
+import '../interfaces/field_interface.dart';
 
 class GroupCheckboxComponent extends FieldComponent {
 
@@ -21,7 +21,7 @@ class GroupCheckboxComponent extends FieldComponent {
   @override
   Widget get componentWidget {
     return CheckboxGroupFieldBlocBuilder(
-      key: uuid,
+      key: key,
       multiSelectFieldBloc: listener as MultiSelectFieldBloc,
       itemBuilder: FieldUtil.itemBuilder,
       canTapItemTile: true,

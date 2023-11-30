@@ -1,16 +1,15 @@
 
 
-import 'package:formcraft/src/components/interfaces/field_interface.dart';
 import 'package:formcraft/src/components/interfaces/component_interface.dart';
+import 'package:formcraft/src/components/interfaces/field_interface.dart';
 import 'package:formcraft/src/other/typedefs/typedefs.dart';
 import 'package:formcraft/src/providers/storage.dart';
 
 
-class Condition {
+class Logic {
 
 
-  Condition(this.component, this.logic) {
-
+  Logic(this.component, this.logic) {
 
     for (var element in logic) {
 
@@ -39,6 +38,8 @@ class Condition {
     component.listener
       ..subscribeToFieldBlocs(listenableFields)
       ..updateValidators([_action]);
+
+
 
   }
 
@@ -85,7 +86,7 @@ class Condition {
 
   void _action(value) {
 
-    // component.visible = evaluate();
+    component.visible = evaluate();
 
     evaluateJsRaw();
 
