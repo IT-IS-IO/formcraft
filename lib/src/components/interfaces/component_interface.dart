@@ -1,12 +1,16 @@
+library component_interface;
 
-
+import 'package:formcraft/src/components/interfaces/field_interface.dart';
+import 'package:formcraft/src/other/typedefs/typedefs.dart';
+import 'package:formcraft/src/providers/storage.dart';
 import 'package:formcraft/src/utils/component.dart';
-import 'conditional_interface.dart';
-import 'package:flutter/material.dart';
+import 'package:jsonlogic/jsonlogic.dart';
 export 'package:flutter/material.dart';
 
+part 'package:formcraft/src/other/mixins/conditional_mixin.dart';
 
-abstract class Component extends Conditional {
+
+abstract class Component extends ChangeNotifier with Conditional {
 
   Component({ Map<String, dynamic> attributes = const { } }):
         _attributes = attributes,
@@ -61,13 +65,11 @@ abstract class Component extends Conditional {
 
     if (_initialized) return _widget;
 
-    if (attributes.isNotEmpty && attributes.containsKey("logic")) {
-
-      buildCondition({});
-
+    if (attributes.isNotEmpty) {
+      _buildCondition(attributes);
     }
 
-    _widget = wrapWithListenable(componentWidget);
+    _widget = _wrapWithListenable(componentWidget);
 
     _initialized = true;
 

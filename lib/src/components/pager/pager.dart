@@ -20,8 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import 'package:formcraft/src/components/interfaces/component_interface.dart';
 import 'package:provider/provider.dart';
-import '../interface.dart';
 import 'core/controllers/pager_controller.dart';
 import 'drawer/pager_drawer.dart';
 import 'drawer/pager_navigation_drawer.dart';

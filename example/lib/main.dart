@@ -35,155 +35,173 @@ class _MyAppState extends State<MyApp> {
                       "mainAxisAlignment": "center",
                       "crossAxisAlignment": "center",
                       "children": [
+
                         {
                           "component": "textField",
                           "key": "FormCraftInput",
                           "initialValue": "Hello World!",
-                        },
-                        {
-                          "component": "groupRadio",
-                          "key": "FormCraftRadioGroup",
-                          "values": [
-                            {
-                              "value": "1",
-                              "label": "One"
-                            },
-                            {
-                              "value": "2",
-                              "label": "Two"
-                            },
-                            {
-                              "value": "3",
-                              "label": "Three"
-                            }
-                          ],
-                          "logic": [
-                            {
-                              "name": "Update Values: Animals",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "FormCraftCheckboxGroup",
-                                  "eq": "hello"
-                                }
-                              },
-                              "actions": [
+                          "conditional": {
+                            "json": {
+                              "==": [
                                 {
-                                  "name": "Schema Update",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
-                                }
+                                  "var": "typeMe"
+                                },
+                                "Me"
                               ]
                             },
-                            {
-                              "name": "Update Values: Animals",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "FormCraftInput",
-                                  "eq": "hello"
-                                }
-                              },
-                              "actions": [
-                                {
-                                  "name": "Schema Update",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
-                                }
-                              ]
-                            },
-                            {
-                              "name": "Update Values: Fruits",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "FormCraftInput",
-                                  "eq": "imo"
-                                }
-                              },
-                              "actions": [
-                                {
-                                  "name": "Update fruit",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
-                                }
-                              ]
-                            }
-                          ],
+                          }
                         },
-                        {
-                          "component": "checkbox",
-                          "key": "FormCraftCheckbox",
-                          "label": "Hey! It's warioddly"
-                        },
-                        {
-                          "component": "groupCheckbox",
-                          "key": "FormCraftCheckboxGroup",
-                          "values": [
-                            {
-                              "value": "1",
-                              "label": "One"
-                            },
-                            {
-                              "value": "2",
-                              "label": "Two"
-                            },
-                            {
-                              "value": "3",
-                              "label": "Three"
-                            }
-                          ]
-                        },
-                        {
-                          "component": "textField",
-                          "key": "FormCraftInput765",
-                          "initialValue": "Hello 124124124124124!",
-                        },
-                        {
-                          "component": "text",
-                          "data": "Hey! It's warioddly",
-                          "logic": [
-                            {
-                              "name": "Update Values: Fruits",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "FormCraftInput",
-                                  "eq": "imo"
-                                }
-                              },
-                              "actions": [
-                                {
-                                  "name": "Update fruit",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
-                                }
-                              ]
-                            },
-                            {
-                              "name": "Update Values: Fruits",
-                              "trigger": {
-                                "type": "simple",
-                                "simple": {
-                                  "show": true,
-                                  "when": "FormCraftInput",
-                                  "eq": "show text"
-                                }
-                              },
-                              "actions": [
-                                {
-                                  "name": "Update fruit",
-                                  "type": "mergeComponentSchema",
-                                  "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
-                                }
-                              ]
-                            }
-                          ]
-                        }
+
+
+                        // {
+                        //   "component": "textField",
+                        //   "key": "FormCraftInput",
+                        //   "initialValue": "Hello World!",
+                        // },
+                        // {
+                        //   "component": "groupRadio",
+                        //   "key": "FormCraftRadioGroup",
+                        //   "values": [
+                        //     {
+                        //       "value": "1",
+                        //       "label": "One"
+                        //     },
+                        //     {
+                        //       "value": "2",
+                        //       "label": "Two"
+                        //     },
+                        //     {
+                        //       "value": "3",
+                        //       "label": "Three"
+                        //     }
+                        //   ],
+                        //   "logic": [
+                        //     {
+                        //       "name": "Update Values: Animals",
+                        //       "trigger": {
+                        //         "type": "simple",
+                        //         "simple": {
+                        //           "show": true,
+                        //           "when": "FormCraftCheckboxGroup",
+                        //           "eq": "hello"
+                        //         }
+                        //       },
+                        //       "actions": [
+                        //         {
+                        //           "name": "Schema Update",
+                        //           "type": "mergeComponentSchema",
+                        //           "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
+                        //         }
+                        //       ]
+                        //     },
+                        //     {
+                        //       "name": "Update Values: Animals",
+                        //       "trigger": {
+                        //         "type": "simple",
+                        //         "simple": {
+                        //           "show": true,
+                        //           "when": "FormCraftInput",
+                        //           "eq": "hello"
+                        //         }
+                        //       },
+                        //       "actions": [
+                        //         {
+                        //           "name": "Schema Update",
+                        //           "type": "mergeComponentSchema",
+                        //           "schemaDefinition": "schema = {values:[{label: 'Cat', value: 'cat'}, {label:'Dog', value: 'dog'}]};"
+                        //         }
+                        //       ]
+                        //     },
+                        //     {
+                        //       "name": "Update Values: Fruits",
+                        //       "trigger": {
+                        //         "type": "simple",
+                        //         "simple": {
+                        //           "show": true,
+                        //           "when": "FormCraftInput",
+                        //           "eq": "imo"
+                        //         }
+                        //       },
+                        //       "actions": [
+                        //         {
+                        //           "name": "Update fruit",
+                        //           "type": "mergeComponentSchema",
+                        //           "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                        //         }
+                        //       ]
+                        //     }
+                        //   ],
+                        // },
+                        // {
+                        //   "component": "checkbox",
+                        //   "key": "FormCraftCheckbox",
+                        //   "label": "Hey! It's warioddly"
+                        // },
+                        // {
+                        //   "component": "groupCheckbox",
+                        //   "key": "FormCraftCheckboxGroup",
+                        //   "values": [
+                        //     {
+                        //       "value": "1",
+                        //       "label": "One"
+                        //     },
+                        //     {
+                        //       "value": "2",
+                        //       "label": "Two"
+                        //     },
+                        //     {
+                        //       "value": "3",
+                        //       "label": "Three"
+                        //     }
+                        //   ]
+                        // },
+                        // {
+                        //   "component": "textField",
+                        //   "key": "FormCraftInput765",
+                        //   "initialValue": "Hello 124124124124124!",
+                        // },
+                        // {
+                        //   "component": "text",
+                        //   "data": "Hey! It's warioddly",
+                        //   "logic": [
+                        //     {
+                        //       "name": "Update Values: Fruits",
+                        //       "trigger": {
+                        //         "type": "simple",
+                        //         "simple": {
+                        //           "show": true,
+                        //           "when": "FormCraftInput",
+                        //           "eq": "imo"
+                        //         }
+                        //       },
+                        //       "actions": [
+                        //         {
+                        //           "name": "Update fruit",
+                        //           "type": "mergeComponentSchema",
+                        //           "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                        //         }
+                        //       ]
+                        //     },
+                        //     {
+                        //       "name": "Update Values: Fruits",
+                        //       "trigger": {
+                        //         "type": "simple",
+                        //         "simple": {
+                        //           "show": true,
+                        //           "when": "FormCraftInput",
+                        //           "eq": "show text"
+                        //         }
+                        //       },
+                        //       "actions": [
+                        //         {
+                        //           "name": "Update fruit",
+                        //           "type": "mergeComponentSchema",
+                        //           "schemaDefinition": "schema = {values:[{label: 'Apple', value: 'apple'}, {label:'Banana', value: 'banana'}]};"
+                        //         }
+                        //       ]
+                        //     }
+                        //   ]
+                        // }
                       ]
                     },
                   }

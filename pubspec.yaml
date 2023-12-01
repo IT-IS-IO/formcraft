@@ -19,7 +19,7 @@ dependencies:
   expandable_page_view: ^1.0.17
   provider: ^6.1.1
   flutter_js: ^0.8.0
-
+  jsonlogic: ^2.0.2
 
 dev_dependencies:
   flutter_test:
